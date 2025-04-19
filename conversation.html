@@ -10,37 +10,40 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body class="bg-gray-100 text-gray-800 transition-colors duration-300">
+<body class="bg-gray-100 text-gray-800 transition-colors duration-300 min-h-screen flex flex-col">
 
-<!-- Navigation -->
-<header class="bg-white shadow sticky top-0 z-50">
-    <div class="max-w-screen-xl mx-auto px-8 py-5 flex justify-between items-center">
-        <div class="text-2xl font-extrabold text-green-600 tracking-wide">E-Artisanat</div>
-        <nav class="hidden lg:flex items-center gap-10 text-lg font-medium">
-            <a href="index.html" class="text-gray-700 hover:text-green-600 transition">Accueil</a>
-            <a href="products.html" class="text-gray-700 hover:text-green-600 transition">Boutique</a>
-            <a href="#" class="text-gray-700 hover:text-green-600 transition flex items-center" aria-label="Notifications">
-                <i class="fa-regular fa-bell text-xl"></i>
-            </a>
-            <a href="compte.html" class="text-gray-700 hover:text-green-600 transition flex items-center">
-                <i class="fa-regular fa-user text-xl"></i>
-            </a>
-        </nav>
-        <!-- Menu mobile -->
-        <button class="lg:hidden text-gray-700" id="menu-toggle" aria-label="Ouvrir le menu">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-        </button>
-    </div>
-    <div id="mobile-menu" class="hidden flex-col items-center gap-4 pb-4 text-lg font-medium lg:hidden">
-        <a href="index.html" class="text-green-600 block ml-2 hover:text-green-600">Accueil</a>
-        <a href="products.html" class="text-gray-700 block ml-2 hover:text-green-600">Boutique</a>
-        <a href="compte.html" class="text-gray-700 block ml-2 hover:text-green-600">Compte</a>
-        <a href="#" class="text-gray-700 block ml-2 hover:text-green-600">Notifications</a>
-    </div>
-</header>
+    <!-- Navigation -->
+    <header class="bg-white shadow sticky top-0 z-50">
+        <div class="max-w-screen-xl mx-auto px-8 py-5 flex justify-between items-center">
+            <div class="text-2xl font-extrabold text-green-600 tracking-wide">E-Artisanat</div>
+            <nav class="hidden lg:flex items-center gap-10 text-lg font-medium">
+                <a href="index.html" class="text-gray-700 hover:text-green-600 transition">Accueil</a>
+                <a href="products.html" class="text-gray-700 hover:text-green-600 transition">Boutique</a>
+                
+                <a href="#" class="text-gray-700 hover:text-green-600 transition flex items-center" aria-label="Notifications">
+                    <i class="fa-regular fa-bell text-xl"></i>
+                </a>
+                <a href="compte.html" class="text-gray-700 hover:text-green-600 transition flex items-center">
+                    <i class="fa-regular fa-user text-xl"></i>
+                </a>
+            </nav>
+            <!-- Menu mobile -->
+            <button class="lg:hidden text-gray-700" id="menu-toggle" aria-label="Ouvrir le menu">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+        
+    
+        <div id="mobile-menu" class="hidden flex-col items-center gap-4 pb-4 text-lg font-medium lg:hidden">
+            <a href="index.html" class="text-green-600 block ml-2 hover:text-green-600">Accueil</a>
+            <a href="products.html" class="text-gray-700 block ml-2 hover:text-green-600">Boutique</a>
+            <a href="#" class="text-gray-700 block ml-2 hover:text-green-600">Compte</a>
+            <a href="#" class="text-gray-700 block ml-2 hover:text-green-600">Notifications</a>
+        </div>
+    </header>
 
 <main>
     <section class="w-full sm:w-[70%] mx-auto mt-12 mb-6 px-4">
@@ -97,7 +100,7 @@
     </section>
 </main>
 
-<footer class="bg-gray-300 mt-12 py-6">
+<footer class="bg-gray-300 py-6 w-full flex-shrink-0 z-40 mt-12">
     <div class="max-w-screen-xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center flex-wrap gap-4">
         <div class="flex items-center gap-4 flex-wrap justify-center">
             <span class="font-medium text-gray-800">Paiement via :</span>
