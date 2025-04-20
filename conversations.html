@@ -12,7 +12,6 @@
 </head>
 <body class="bg-gray-100 text-gray-800 transition-colors duration-300 min-h-screen flex flex-col">
 
-    <!-- Navigation -->
     <header class="bg-white shadow sticky top-0 z-50">
         <div class="max-w-screen-xl mx-auto px-8 py-5 flex justify-between items-center">
             <div class="text-2xl font-extrabold text-green-600 tracking-wide"><a href="/index.html">E-Artisanat</a></div>
@@ -23,6 +22,10 @@
                 <a href="/conversations.html"  class="text-gray-700 hover:text-green-600 transition flex items-center" aria-label="messages">
                     <i class="fa-regular fa-message text-xl"></i>
                 </a>
+                <a href="/panier.html" class="text-gray-700 hover:text-green-600 transition flex items-center mr-3" aria-label="Panier">
+                    <i class="fa-solid fa-cart-shopping text-xl"></i>
+                </a>
+                
                 <!-- Notification Popup -->
                 <div id="notification-popup" class="hidden absolute right-7 top-20 bg-white shadow-lg rounded-xl p-4 w-80 z-50">
                     <div class="flex items-center justify-between mb-4">
@@ -37,13 +40,15 @@
                     </ul>
                     <button id="close-notification" class="mt-4 px-4 py-1 bg-green-600 text-white rounded hover:bg-green-700">Fermer</button>
                 </div>
-    
+
                 
                 
-                <div class="relative"></div>
+                <div class="relative flex flex-row">
+                    
                     <a href="#" id="account-btn" class="text-gray-700 hover:text-green-600 transition flex items-center" aria-label="Compte">
                         <i class="fa-regular fa-user text-xl"></i>
                     </a>
+
                     <!-- Account Popup -->
                     <div id="account-popup" class="hidden absolute right-3 top-20 bg-white shadow-lg rounded-xl p-4 w-64 z-50">
                         <div class="flex items-center gap-3 mb-4">
