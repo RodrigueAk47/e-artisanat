@@ -1,0 +1,16 @@
+{
+    "name": "yackad/eartisanat",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Core\\": "core/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Rodrigue Assohou"
+        }
+    ],
+    "require": {}
+}
