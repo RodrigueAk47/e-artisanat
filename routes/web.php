@@ -14,7 +14,13 @@ $router->get('/', function () {
 });
 
 $router->get('/login', function () {
-    (new LoginController())->login(
-        'Connexion'
+    (new AuthController())->login(
+        'E-Artisanat - Connexion'
+    );
+});
+
+$router->get('/register', function () {
+    (new AuthController())->register(
+        'E-Artisanat - Inscription'
     );
 });
