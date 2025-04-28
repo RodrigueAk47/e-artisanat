@@ -5,6 +5,7 @@ global $router;
 
 use App\Controllers\HomeController;
 use App\Controllers\AuthController;
+use App\Controllers\LoginController;
 
 $router->get('/', function () {
     (new HomeController())->index(
@@ -13,14 +14,7 @@ $router->get('/', function () {
 });
 
 $router->get('/login', function () {
-    (new AuthController())->login(
-        'E-Artisanat - Connexion'
+    (new LoginController())->login(
+        'Connexion'
     );
 });
-
-$router->get('/register', function () {
-    (new AuthController())->register(
-        'E-Artisanat - Inscription'
-    );
-});
-
