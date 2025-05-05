@@ -23,7 +23,7 @@
     <!-- ✅ Galerie de Cartes -->
     <section class="w-full sm:w-[70%] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
         <!-- Carte 1 -->
-        <a href="products.html">
+        <a href="/products">
             <article class="text-center">
                 <img src="assets/img/produits/masque.png" alt="Masque traditionnel africain"
                      loading="lazy"
