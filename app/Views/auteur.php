@@ -8,7 +8,7 @@
     <section class="w-full sm:w-[70%] mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- Profil Auteur -->
         <div class="bg-white rounded-2xl shadow p-8 flex flex-col items-center md:col-span-1">
-            <img src="../public/assets/img/avatar.png" alt="Avatar auteur" class="w-24 h-24 rounded-full mb-4 border-4 border-green-200 object-cover">
+            <img src="/assets/img/avatar.png" alt="Avatar auteur" class="w-24 h-24 rounded-full mb-4 border-4 border-green-200 object-cover">
             <h3 class="text-xl font-bold mb-1">Fatou Koné</h3>
             <p class="text-gray-600 mb-2">Artisan bijoutière</p>
             <p class="text-gray-600 mb-4 text-center">Abidjan, Côte d’Ivoire</p>
@@ -50,20 +50,20 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             <!-- Produit 1 -->
             <div class="bg-white rounded-xl shadow p-4 flex flex-col items-center">
-                <img src="../public/assets/img/produits/pagne.png" alt="Bracelet perlé" class="w-32 h-32 object-cover rounded mb-3">
+                <img src="/assets/img/produits/pagne.png" alt="Bracelet perlé" class="w-32 h-32 object-cover rounded mb-3">
                 <h4 class="font-semibold text-lg mb-1">Bracelet perlé</h4>
                 <span class="text-green-600 font-bold mb-2">5 000 FCFA</span>
                 <a href="produit.html?id=1" class="text-sm text-green-600 hover:underline">Voir le produit</a>
             </div>
             <!-- Produit 2 -->
             <div class="bg-white rounded-xl shadow p-4 flex flex-col items-center">
-                <img src="../public/assets/img/produits/sculpture.png" alt="Collier africain" class="w-32 h-32 object-cover rounded mb-3">
+                <img src="/assets/img/produits/sculpture.png" alt="Collier africain" class="w-32 h-32 object-cover rounded mb-3">
                 <h4 class="font-semibold text-lg mb-1">Collier africain</h4>
                 <span class="text-green-600 font-bold mb-2">8 000 FCFA</span>
                 <a href="produit.html?id=2" class="text-sm text-green-600 hover:underline">Voir le produit</a>
             </div>
             <div class="bg-white rounded-xl shadow p-4 flex flex-col items-center">
-                <img src="../public/assets/img/produits/poteries.png" alt="Collier africain" class="w-32 h-32 object-cover rounded mb-3">
+                <img src="/assets/img/produits/poteries.png" alt="Collier africain" class="w-32 h-32 object-cover rounded mb-3">
                 <h4 class="font-semibold text-lg mb-1">Collier africain</h4>
                 <span class="text-green-600 font-bold mb-2">8 000 FCFA</span>
                 <a href="produit.html?id=2" class="text-sm text-green-600 hover:underline">Voir le produit</a>
