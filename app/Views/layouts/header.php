@@ -8,7 +8,7 @@
     <meta name="theme-color" content="#ffffff">
     <link rel="icon" href="favicon.ico">
     <script src="/assets/css/tailwind.js"></script>
-    <link rel="stylesheet" href="/assets/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="bg-gray-100 text-gray-800 transition-colors duration-300 min-h-screen flex flex-col">
