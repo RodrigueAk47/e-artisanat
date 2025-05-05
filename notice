@@ -1,4 +1,4 @@
-Pour ajouter une nouvelle page au site web, suivez les étapes ci-dessous :
+#Pour ajouter une nouvelle page au site web, suivez les étapes ci-dessous :
 
 1. Allez dans le répertoire '/static/'.
 2. Choisissez la page dont vous souhaitez ajouter le contenu.
@@ -17,3 +17,13 @@ Pour ajouter une nouvelle page au site web, suivez les étapes ci-dessous :
   - Ajoutez une nouvelle route pour votre page, en suivant le modèle des routes déjà présentes.
 
 Votre nouvelle page est maintenant accessible depuis le site web.
+
+
+
+
+#Pour lancer Docker
+1. lancer le logiciel Docker
+2. aller dans vscode 
+3. ouvrir le terminal
+4. taper la commande suivante : docker-compose up -d
+5. aller dans le navigateur et taper l'adresse suivante : http://localhost
