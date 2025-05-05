@@ -5,7 +5,8 @@ global $router;
 
 use App\Controllers\HomeController;
 use App\Controllers\AuthController;
-use App\Controllers\AuteurController;
+use App\Controllers\LoginController;
+use App\Controllers\ComController;
 
 $router->get('/', function () {
     (new HomeController())->index(
@@ -25,8 +26,8 @@ $router->get('/register', function () {
     );
 });
 
-$router->get('/auteur', function () {
-    (new AuteurController())->index(
-        'E-Artisanat - Auteur'
+$router->get('/commander', function () {
+    (new ComController())->commander(
+        'E-Artisanat - Commande'
     );
 });
