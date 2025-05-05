@@ -9,6 +9,7 @@ use App\Controllers\LoginController;
 use App\Controllers\ComController;
 use App\Controllers\ProductsController;
 use App\Controllers\ProductController;
+use App\Controllers\MessagerieController;
 
 
 $router->get('/', function () {
@@ -29,6 +30,20 @@ $router->get('/register', function () {
     );
 });
 
+// Route pour les conversations
+$router->get('/conversations', function () {
+    (new MessagerieController())->conversations(
+        'E-Artisanat - Messagerie'
+    );
+});
+
+$router->get('/conversation', function () {
+    (new MessagerieController())->conversation(
+        'E-Artisanat - Messagerie'
+    );
+});
+
+// Route pour les commandes
 $router->get('/commander', function () {
     (new ComController())->commander(
         'E-Artisanat - Commande'

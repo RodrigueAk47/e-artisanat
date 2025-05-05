@@ -8,8 +8,8 @@
     <section class="w-full sm:w-[70%] mx-auto px-4">
         <div class="bg-white rounded-2xl shadow p-6 flex flex-col gap-4">
             <!-- Conversation 1 -->
-            <a href="conversation.html" class="flex items-center gap-4 p-4 rounded-xl hover:bg-green-50 transition border-b">
-                <img src="../public/assets/img/avatar.png" alt="Fournisseur" class="w-12 h-12 rounded-full object-cover border-2 border-green-200">
+            <a href="/conversation" class="flex items-center gap-4 p-4 rounded-xl hover:bg-green-50 transition border-b">
+                <img src="assets/img/avatar.png" alt="Fournisseur" class="w-12 h-12 rounded-full object-cover border-2 border-green-200">
                 <div class="flex-1">
                     <div class="flex justify-between items-center"></div>
                         <h3 class="font-bold text-lg">Nom du Fournisseur</h3>
@@ -20,8 +20,8 @@
                 <span class="inline-block bg-green-500 text-white text-xs px-2 py-1 rounded-full">1</span>
             </a>
             <!-- Conversation 2 -->
-            <a href="conversation.html" class="flex items-center gap-4 p-4 rounded-xl hover:bg-green-50 transition border-b">
-                <img src="../public/assets/img/avatar.png" alt="Fournisseur" class="w-12 h-12 rounded-full object-cover border-2 border-green-200">
+            <a href="/conversation" class="flex items-center gap-4 p-4 rounded-xl hover:bg-green-50 transition border-b">
+                <img src="/assets/img/avatar.png" alt="Fournisseur" class="w-12 h-12 rounded-full object-cover border-2 border-green-200">
                 <div class="flex-1">
                     <div class="flex justify-between items-center">
                         <h3 class="font-bold text-lg">Artisan Bijoux</h3>
@@ -31,8 +31,8 @@
                 </div>
             </a>
             <!-- Conversation 3 -->
-            <a href="conversation.html" class="flex items-center gap-4 p-4 rounded-xl hover:bg-green-50 transition">
-                <img src="../public/assets/img/avatar.png" alt="Fournisseur" class="w-12 h-12 rounded-full object-cover border-2 border-green-200">
+            <a href="/conversation" class="flex items-center gap-4 p-4 rounded-xl hover:bg-green-50 transition">
+                <img src="/assets/img/avatar.png" alt="Fournisseur" class="w-12 h-12 rounded-full object-cover border-2 border-green-200">
                 <div class="flex-1">
                     <div class="flex justify-between items-center">
                         <h3 class="font-bold text-lg">Tisserand Local</h3>
