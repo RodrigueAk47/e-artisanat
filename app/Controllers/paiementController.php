@@ -2,12 +2,12 @@
 
 namespace App\Controllers;
 
-class conversationController
+class paiementController
 {
-    public function converser(string $title)
+    public function payer(string $title)
     {
         require_once __DIR__ . '/../Views/layouts/header.php';
-        require_once __DIR__ .'/../Views/conversation.php';
+        require_once __DIR__ .'/../Views/paiement.php';
         require_once __DIR__ . '/../Views/layouts/footer.php';
     }
 }

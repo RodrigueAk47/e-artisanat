@@ -2,12 +2,12 @@
 
 namespace App\Controllers;
 
-class conversationsController
+class mescommandesController
 {
-    public function converser(string $title)
+    public function commander(string $title)
     {
         require_once __DIR__ . '/../Views/layouts/header.php';
-        require_once __DIR__ .'/../Views/conversations.php';
+        require_once __DIR__ .'/../Views/mescommandes.php';
         require_once __DIR__ . '/../Views/layouts/footer.php';
     }
 }

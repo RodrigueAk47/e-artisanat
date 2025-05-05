@@ -12,7 +12,6 @@ use App\Controllers\ProductController;
 use App\Controllers\PanierController;
 
 
-
 $router->get('/', function () {
     (new HomeController())->index(
         'E-Artisanat - Accueil'
@@ -31,6 +30,20 @@ $router->get('/register', function () {
     );
 });
 
+// Route pour les conversations
+$router->get('/conversations', function () {
+    (new MessagerieController())->conversations(
+        'E-Artisanat - Messagerie'
+    );
+});
+
+$router->get('/conversation', function () {
+    (new MessagerieController())->conversation(
+        'E-Artisanat - Messagerie'
+    );
+});
+
+// Route pour les commandes
 $router->get('/commander', function () {
     (new ComController())->commander(
         'E-Artisanat - Commande'
