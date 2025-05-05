@@ -7,8 +7,8 @@
     <meta name="description" content="Découvrez les trésors artisanaux de la Côte d’Ivoire avec E-Artisanat.">
     <meta name="theme-color" content="#ffffff">
     <link rel="icon" href="favicon.ico">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="/assets/css/tailwind.js"></script>
+    <link rel="stylesheet" href="/assets/css/font-awesome.css">
 </head>
 
 <body class="bg-gray-100 text-gray-800 transition-colors duration-300 min-h-screen flex flex-col">
@@ -16,7 +16,7 @@
 <!-- Navigation -->
 <header class="bg-white shadow sticky top-0 z-50">
     <div class="max-w-screen-xl mx-auto px-8 py-5 flex justify-between items-center">
-        <div class="text-2xl font-extrabold text-green-600 tracking-wide"><a href="/index.html">E-Artisanat</a></div>
+        <div class="text-2xl font-extrabold text-green-600 tracking-wide"><a href="/">E-Artisanat</a></div>
         <nav class="flex items-center gap-5 text-lg font-medium">
             <a href="#" id="notification-btn" class="text-gray-700 hover:text-green-600 transition flex items-center" aria-label="Notifications">
                 <i class="fa-regular fa-bell text-xl"></i>
