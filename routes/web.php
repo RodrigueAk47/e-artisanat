@@ -9,6 +9,8 @@ use App\Controllers\LoginController;
 use App\Controllers\ComController;
 use App\Controllers\ProductsController;
 use App\Controllers\ProductController;
+use App\Controllers\PanierController;
+
 
 
 $router->get('/', function () {
@@ -44,5 +46,11 @@ $router->get('/products', function () {
 $router->get('/product', function () {
     (new ProductController())->product(
         'E-Artisanat - commande & négociation'
+    );
+});
+
+$router->get('/panier', function () {
+    (new PanierController())->panier(
+        'E-Artisanat - panier'
     );
 });
