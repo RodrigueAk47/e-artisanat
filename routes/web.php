@@ -8,6 +8,7 @@ use App\Controllers\AuthController;
 use App\Controllers\LoginController;
 use App\Controllers\ComController;
 use App\Controllers\ProductsController;
+use App\Controllers\ProductController;
 
 
 $router->get('/', function () {
@@ -37,5 +38,11 @@ $router->get('/commander', function () {
 $router->get('/products', function () {
     (new ProductsController())->products(
         'E-Artisanat - production'
+    );
+});
+
+$router->get('/product', function () {
+    (new ProductController())->product(
+        'E-Artisanat - commande & négociation'
     );
 });
