@@ -10,6 +10,7 @@ use App\Controllers\ComController;
 use App\Controllers\ProductsController;
 use App\Controllers\ProductController;
 use App\Controllers\PanierController;
+use App\Controllers\CompteController;
 
 
 $router->get('/', function () {
@@ -65,5 +66,11 @@ $router->get('/product', function () {
 $router->get('/panier', function () {
     (new PanierController())->panier(
         'E-Artisanat - panier'
+    );
+});
+
+$router->get('/compter', function () {
+    (new CompteController())->compte(
+        'E-Artisanat - compte'
     );
 });
