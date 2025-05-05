@@ -1,5 +1,4 @@
-<?php
-main class="flex-grow">
+<main class="flex-grow">
 <section class="w-full sm:w-[70%] mx-auto mt-12 mb-6 px-4">
     <h2 class="text-3xl font-bold text-center text-gray-800 bg-gray-300 py-4 rounded-full">
         Conversation avec le fournisseur
