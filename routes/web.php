@@ -6,6 +6,7 @@ global $router;
 use App\Controllers\HomeController;
 use App\Controllers\AuthController;
 use App\Controllers\LoginController;
+use App\Controllers\ComController;
 
 $router->get('/', function () {
     (new HomeController())->index(
@@ -22,5 +23,11 @@ $router->get('/login', function () {
 $router->get('/register', function () {
     (new AuthController())->register(
         'E-Artisanat - Inscription'
+    );
+});
+
+$router->get('/commander', function () {
+    (new ComController())->commander(
+        'E-Artisanat - Commande'
     );
 });
