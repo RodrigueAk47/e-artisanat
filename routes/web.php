@@ -9,17 +9,12 @@ use App\Controllers\ComController;
 use App\Controllers\ProductsController;
 use App\Controllers\ProductController;
 use App\Controllers\PanierController;
-<<<<<<< HEAD
 use App\Controllers\paiementController;
 
-
-
-
-=======
 use App\Controllers\MessagerieController;
 use App\Controllers\Admins\AdminController;
 use App\Controllers\CompteController;
->>>>>>> master
+
 
 $router->get('/', function () {
     (new HomeController())->index(
@@ -77,13 +72,13 @@ $router->get('/panier', function () {
     );
 });
 
-<<<<<<< HEAD
+
 $router->get('/payer', function () {
-    (new PanierController())->paiement(
+    (new PanierController())->panier(
         'E-Artisanat - paiement'
     );
 });
-=======
+
 // Admin routes
 $router->get('/admin', function () {
     (new AdminController())->index(
@@ -126,4 +121,3 @@ $router->get('/compte', function () {
     );
 });
 
->>>>>>> master
