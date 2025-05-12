@@ -27,7 +27,7 @@
                     </div>
                 </div>
             </div>
-            <a href="/products.html" class="mt-10 inline-block bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 font-semibold transition">
+            <a href="/products" class="mt-10 inline-block bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 font-semibold transition">
                 Retour à l'accueil
             </a>
         </section>

@@ -39,10 +39,10 @@
             </div>
             
             <div class="flex gap-4 mb-6 mt-6">
-                <a href="/panier.html" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 font-semibold transition flex-1">
+                <a href="/panier" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 font-semibold transition flex-1">
                     Commander
                 </a>
-                <a href="/conversation.html" class="bg-yellow-500 text-white px-6 py-2 rounded hover:bg-yellow-600 font-semibold transition flex-1">
+                <a href="/conversation" class="bg-yellow-500 text-white px-6 py-2 rounded hover:bg-yellow-600 font-semibold transition flex-1">
                     Négocier
                 </a>
             </div>

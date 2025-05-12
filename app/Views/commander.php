@@ -1,4 +1,5 @@
 <main class="flex-grow flex items-center justify-center">
+
         <section class="bg-white rounded-3xl shadow-lg p-10 w-full max-w-lg mt-16 text-center">
             <div class="flex flex-col items-center">
                 <i class="fa-solid fa-circle-check text-green-500 text-6xl mb-4"></i>

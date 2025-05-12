@@ -32,8 +32,8 @@
                     <span class="text-2xl font-bold text-green-600">35 000 FCFA</span>
                 </div>
                 <div class="flex gap-4">
-                    <a href="/index.html" class="px-6 py-2 rounded bg-gray-200 text-gray-700 hover:bg-gray-300 font-semibold transition">Continuer mes achats</a>
-                    <a href="/paiement.html" class="px-6 py-2 rounded bg-blue-600 text-white hover:bg-blue-700 font-semibold transition">Commander</a>
+                    <a href="/" class="px-6 py-2 rounded bg-gray-200 text-gray-700 hover:bg-gray-300 font-semibold transition">Continuer mes achats</a>
+                    <a href="/payer" class="px-6 py-2 rounded bg-blue-600 text-white hover:bg-blue-700 font-semibold transition">Commander</a>
                 </div>
             </div>
         </section>
