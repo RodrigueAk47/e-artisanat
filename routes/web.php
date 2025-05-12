@@ -70,6 +70,9 @@ $router->get('/panier', function () {
     (new PanierController())->panier(
         'E-Artisanat - panier'
     );
+<<<<<<< HEAD
+});
+=======
 });
 
 
@@ -121,3 +124,4 @@ $router->get('/compte', function () {
     );
 });
 
+>>>>>>> 9fcf21cfd2c13baac8d47c3fe91368c843271d26
