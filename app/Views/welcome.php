@@ -33,6 +33,7 @@
             </article>
         </a>
         <!-- Carte 2 -->
+<<<<<<< HEAD
          <a href="/products">
             <article class="text-center">
                 <img src="assets/img/produits/sculpture.png" alt="Sculpture en bois ivoirienne"
@@ -65,6 +66,9 @@
                 </p>
             </article>
         </a>
+=======
+        
+>>>>>>> master
     </section>
 
     <!-- ✅ Newsletter -->
