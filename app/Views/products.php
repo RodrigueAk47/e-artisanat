@@ -11,7 +11,7 @@
         <!-- Produit 1 -->
         <article class="bg-white rounded-2xl shadow hover:shadow-lg transition p-4 flex flex-col relative">
             <div class="relative">
-                <img src="../public/assets/img/produits/masque.png" alt="Masque traditionnel africain"
+                <img src="/assets/img/produits/masque.png" alt="Masque traditionnel africain"
                      loading="lazy"
                      class="w-full h-48 object-cover rounded-xl mb-4">
                 <span class="absolute top-2 right-2 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg flex items-center gap-1">
@@ -28,7 +28,7 @@
         </article>
         <!-- Produit 2 -->
         <article class="bg-white rounded-2xl shadow hover:shadow-lg transition p-4 flex flex-col">
-            <img src="../public/assets/img/produits/sculpture.png" alt="Sculpture en bois ivoirienne"
+            <img src="/assets/img/produits/sculpture.png" alt="Sculpture en bois ivoirienne"
                  loading="lazy"
                  class="w-full h-48 object-cover rounded-xl mb-4">
             <h3 class="font-semibold text-lg mb-2">Sculpture en bois</h3>
@@ -38,7 +38,7 @@
         </article>
         <!-- Produit 3 -->
         <article class="bg-white rounded-2xl shadow hover:shadow-lg transition p-4 flex flex-col">
-            <img src="../public/assets/img/produits/pagne.png" alt="Tenue en pagne coloré"
+            <img src="/assets/img/produits/pagne.png" alt="Tenue en pagne coloré"
                  loading="lazy"
                  class="w-full h-48 object-cover rounded-xl mb-4">
             <h3 class="font-semibold text-lg mb-2">Tenue en pagne coloré</h3>
@@ -48,7 +48,7 @@
         </article>
         <!-- Produit 4 -->
         <article class="bg-white rounded-2xl shadow hover:shadow-lg transition p-4 flex flex-col">
-            <img src="../public/assets/img/produits/poteries.png" alt="Poterie artisanale ivoirienne"
+            <img src="/assets/img/produits/poteries.png" alt="Poterie artisanale ivoirienne"
                  loading="lazy"
                  class="w-full h-48 object-cover rounded-xl mb-4">
             <h3 class="font-semibold text-lg mb-2">Poterie artisanale</h3>

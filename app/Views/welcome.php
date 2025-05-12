@@ -34,32 +34,7 @@
             </article>
         </a>
         <!-- Carte 2 -->
-        <article class="text-center">
-            <img src="assets/img/produits/sculpture.png" alt="Sculpture en bois ivoirienne"
-                 loading="lazy"
-                 class="w-[80%] mx-auto object-cover rounded-[40px] transition-transform duration-300 hover:scale-105">
-            <p class="mt-3 px-4 py-2 bg-gray-200 font-semibold rounded-full w-max mx-auto">
-                Sculpture en bois
-            </p>
-        </article>
-        <!-- Carte 3 -->
-        <article class="text-center">
-            <img src="assets/img/produits/pagne.png" alt="Tenue en pagne coloré"
-                 loading="lazy"
-                 class="w-[80%] mx-auto object-cover rounded-[40px] transition-transform duration-300 hover:scale-105">
-            <p class="mt-3 px-4 py-2 bg-gray-200 font-semibold rounded-full w-max mx-auto">
-                Tenue en pagne coloré
-            </p>
-        </article>
-        <!-- Carte 4 -->
-        <article class="text-center">
-            <img src="assets/img/produits/poteries.png" alt="Poterie artisanale ivoirienne"
-                 loading="lazy"
-                 class="w-[80%] mx-auto object-cover rounded-[40px] transition-transform duration-300 hover:scale-105">
-            <p class="mt-3 px-4 py-2 bg-gray-200 font-semibold rounded-full w-max mx-auto">
-                Poterie artisanale
-            </p>
-        </article>
+        
     </section>
 
     <!-- ✅ Newsletter -->
