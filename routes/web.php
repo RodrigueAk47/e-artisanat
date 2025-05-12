@@ -9,14 +9,9 @@ use App\Controllers\ComController;
 use App\Controllers\ProductsController;
 use App\Controllers\ProductController;
 use App\Controllers\PanierController;
-<<<<<<< HEAD
 use App\Controllers\MessagerieController;
 use App\Controllers\Admins\AdminController;
-
-=======
 use App\Controllers\CompteController;
->>>>>>> 47e6dd23dcdc1db5ea81dfa8fe3e99cdb85ad064
-
 
 $router->get('/', function () {
     (new HomeController())->index(
@@ -74,7 +69,6 @@ $router->get('/panier', function () {
     );
 });
 
-<<<<<<< HEAD
 // Admin routes
 $router->get('/admin', function () {
     (new AdminController())->index(
@@ -110,10 +104,10 @@ $router->get('/admin/settings', function () {
         'E-Artisanat - Admin Settings'
     );
 });
-=======
+
 $router->get('/compte', function () {
     (new CompteController())->compte(
         'E-Artisanat - compte'
     );
 });
->>>>>>> 47e6dd23dcdc1db5ea81dfa8fe3e99cdb85ad064
+
