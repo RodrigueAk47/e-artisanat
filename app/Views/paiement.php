@@ -6,21 +6,21 @@
             </p>
             <div class="grid grid-cols-1 gap-8">
                 <div class="flex items-center gap-4 bg-gray-50 rounded-xl p-4 shadow">
-                    <img src="../public/assets/img/produits/wave.png" alt="Paiement via Wave" class="h-14 w-auto">
+                    <img src="../assets/img/produits/wave.png" alt="Paiement via Wave" class="h-14 w-auto">
                     <div class="text-left">
                         <h2 class="font-semibold text-lg">Wave</h2>
                         <p class="text-gray-600 text-sm">Payez facilement via l'application Wave.</p>
                     </div>
                 </div>
                 <div class="flex items-center gap-4 bg-gray-50 rounded-xl p-4 shadow">
-                    <img src="../public/assets/img/produits/orange.png" alt="Paiement via Orange" class="h-14 w-auto">
+                    <img src="../assets/img/produits/orange.png" alt="Paiement via Orange" class="h-14 w-auto">
                     <div class="text-left">
                         <h2 class="font-semibold text-lg">Orange Money</h2>
                         <p class="text-gray-600 text-sm">Utilisez votre compte Orange Money pour un paiement rapide.</p>
                     </div>
                 </div>
                 <div class="flex items-center gap-4 bg-gray-50 rounded-xl p-4 shadow">
-                    <img src="../public/assets/img/produits/moov.png" alt="Paiement via Moov" class="h-14 w-auto">
+                    <img src="../assets/img/produits/moov.png" alt="Paiement via Moov" class="h-14 w-auto">
                     <div class="text-left">
                         <h2 class="font-semibold text-lg">Moov Money</h2>
                         <p class="text-gray-600 text-sm">Réglez vos achats avec Moov Money en toute simplicité.</p>

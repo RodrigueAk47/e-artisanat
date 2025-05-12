@@ -35,7 +35,7 @@
                     <tbody class="bg-white divide-y divide-gray-100">
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap flex items-center gap-3">
-                                <img src="../public/assets/img/produits/pagne.png" alt="Panier tressé" class="h-12 w-12 rounded object-cover">
+                                <img src="../assets/img/produits/pagne.png" alt="Panier tressé" class="h-12 w-12 rounded object-cover">
                                 Panier tressé
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">2</td>
@@ -44,7 +44,7 @@
                         </tr>
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap flex items-center gap-3">
-                                <img src="../public/assets/img/produits/poteries.png" alt="Panier tressé" class="h-12 w-12 rounded object-cover">
+                                <img src="../assets/img/produits/poteries.png" alt="Panier tressé" class="h-12 w-12 rounded object-cover">
                                 Panier tressé
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">2</td>

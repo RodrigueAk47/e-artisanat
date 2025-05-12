@@ -5,7 +5,7 @@
             <div class="flex flex-col gap-6">
                 <!-- Produit 1 -->
                 <div class="flex flex-col sm:flex-row items-center gap-6 border-b pb-6">
-                    <img src="../public/assets/img/produits/masque.png" alt="Masque traditionnel africain" class="w-32 h-32 object-cover rounded-2xl shadow">
+                    <img src="../assets/img/produits/masque.png" alt="Masque traditionnel africain" class="w-32 h-32 object-cover rounded-2xl shadow">
                     <div class="flex-1">
                         <h2 class="text-xl font-semibold">Masque traditionnel africain</h2>
                         <p class="text-gray-600 text-sm mb-2">Artisan : <span class="font-bold text-green-700">Yao Kouadio</span></p>

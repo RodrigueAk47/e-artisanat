@@ -8,7 +8,7 @@
     <section class="w-full sm:w-[70%] mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8">
         <!-- Profil utilisateur -->
         <div class="bg-white rounded-2xl shadow p-8 flex flex-col items-center">
-            <img src="../public/assets/img/avatar.png" alt="Avatar utilisateur" class="w-24 h-24 rounded-full mb-4 border-4 border-green-200 object-cover">
+            <img src="../assets/img/avatar.png" alt="Avatar utilisateur" class="w-24 h-24 rounded-full mb-4 border-4 border-green-200 object-cover">
             <h3 class="text-xl font-bold mb-1">Nom Prénom</h3>
             <p class="text-gray-600 mb-4">email@exemple.com</p>
             <a href="#" class="text-green-600 hover:underline text-sm mb-2">Modifier le profil</a>

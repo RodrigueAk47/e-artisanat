@@ -2,11 +2,11 @@
     <section class="w-full sm:w-[70%] mx-auto mt-10 px-4 flex flex-col lg:flex-col gap-10 bg-white rounded-3xl shadow-lg py-10">
         <!-- Product Image -->
         <div class=" flex flex-col items-center">
-            <img src="../public/assets/img/produits/masque.png" alt="Masque traditionnel africain"
+            <img src="/assets/img/produits/masque.png" alt="Masque traditionnel africain"
                  class="w-[90%] max-w-md rounded-3xl object-cover shadow-md">
             <div class="flex gap-2 mt-4">
-                <img src="../public/assets/img/produits/masque.png" alt="Miniature 1" class="w-16 h-16 object-cover rounded-xl border-2 border-green-600">
-                <img src="../public/assets/img/produits/masque.png" alt="Miniature 2" class="w-16 h-16 object-cover rounded-xl opacity-60">
+                <img src="/assets/img/produits/masque.png" alt="Miniature 1" class="w-16 h-16 object-cover rounded-xl border-2 border-green-600">
+                <img src="/assets/img/produits/masque.png" alt="Miniature 2" class="w-16 h-16 object-cover rounded-xl opacity-60">
             </div>
         </div>
         <!-- Product Details -->
@@ -47,11 +47,11 @@
                 </a>
             </div>
             <div class="flex items-center gap-3 mb-2">
-                <img src="../public/assets/img/produits/wave.png" alt="Wave" class="h-8 w-auto">
-                <img src="../public/assets/img/produits/orange.png" alt="Orange" class="h-8 w-auto">
-                <img src="../public/assets/img/produits/mtn.png" alt="MTN" class="h-8 w-auto">
-                <img src="../public/assets/img/produits/moov.png" alt="Moov" class="h-8 w-auto">
-                <img src="../public/assets/img/produits/paypal.png" alt="PayPal" class="h-8 w-auto">
+                <img src="/assets/img/produits/wave.png" alt="Wave" class="h-8 w-auto">
+                <img src="/assets/img/produits/orange.png" alt="Orange" class="h-8 w-auto">
+                <img src="/assets/img/produits/mtn.png" alt="MTN" class="h-8 w-auto">
+                <img src="/assets/img/produits/moov.png" alt="Moov" class="h-8 w-auto">
+                <img src="/assets/img/produits/paypal.png" alt="PayPal" class="h-8 w-auto">
             </div>
             <p class="text-sm text-gray-500">Paiement sécurisé & livraison rapide</p>
         </div>
