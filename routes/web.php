@@ -9,9 +9,6 @@ use App\Controllers\ComController;
 use App\Controllers\ProductsController;
 use App\Controllers\ProductController;
 use App\Controllers\PanierController;
-use App\Controllers\MessagerieController;
-use App\Controllers\Admins\AdminController;
-
 
 
 $router->get('/', function () {
@@ -67,41 +64,5 @@ $router->get('/product', function () {
 $router->get('/panier', function () {
     (new PanierController())->panier(
         'E-Artisanat - panier'
-    );
-});
-
-// Admin routes
-$router->get('/admin', function () {
-    (new AdminController())->index(
-        'E-Artisanat - Admin Dashboard'
-    );
-});
-
-$router->get('/admin/users', function () {
-    (new AdminController())->users(
-        'E-Artisanat - Admin Users'
-    );
-});
-
-$router->get('/admin/products', function () {
-    (new AdminController())->products(
-        'E-Artisanat - Admin Products'
-    );
-});
-
-$router->get('/admin/orders', function () {
-    (new AdminController())->orders(
-        'E-Artisanat - Admin Orders'
-    );
-});
-$router->get('/admin/messages', function () {
-    (new AdminController())->messages(
-        'E-Artisanat - Admin Messages'
-    );
-});
-
-$router->get('/admin/settings', function () {
-    (new AdminController())->settings(
-        'E-Artisanat - Admin Settings'
     );
 });
