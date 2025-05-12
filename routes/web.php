@@ -69,7 +69,7 @@ $router->get('/panier', function () {
     );
 });
 
-$router->get('/compter', function () {
+$router->get('/compte', function () {
     (new CompteController())->compte(
         'E-Artisanat - compte'
     );
