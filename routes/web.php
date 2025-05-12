@@ -16,12 +16,20 @@ use App\Controllers\Admins\AdminController;
 use App\Controllers\CompteController;
 
 
+/**
+ * Main Routes
+ */
+
 $router->get('/', function () {
     (new HomeController())->index(
         'E-Artisanat - Accueil'
     );
 });
 
+
+/**
+ * Formular Routes
+ */
 $router->get('/login', function () {
     (new AuthController())->login(
         'E-Artisanat - Connexion'
@@ -32,9 +40,11 @@ $router->get('/register', function () {
     (new AuthController())->register(
         'E-Artisanat - Inscription'
     );
-});
+}); 
 
-// Route pour les conversations
+/**
+ * Messagerie Routes
+ */
 $router->get('/conversations', function () {
     (new MessagerieController())->conversations(
         'E-Artisanat - Messagerie'
@@ -47,7 +57,9 @@ $router->get('/conversation', function () {
     );
 });
 
-// Route pour les commandes
+/**
+ * Product Routes
+ */
 $router->get('/commander', function () {
     (new ComController())->commander(
         'E-Artisanat - Commande'
@@ -75,12 +87,14 @@ $router->get('/panier', function () {
 
 
 $router->get('/payer', function () {
-    (new PanierController())->panier(
+    (new paiementController())->payer(
         'E-Artisanat - paiement'
     );
 });
 
-// Admin routes
+/**
+ * Admin Routes
+ */
 $router->get('/admin', function () {
     (new AdminController())->index(
         'E-Artisanat - Admin Dashboard'
@@ -116,6 +130,9 @@ $router->get('/admin/settings', function () {
     );
 });
 
+/**
+ * User Routes
+ */
 $router->get('/compte', function () {
     (new CompteController())->compte(
         'E-Artisanat - compte'
