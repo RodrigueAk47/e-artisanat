@@ -71,9 +71,3 @@ $router->get('/panier', function () {
         'E-Artisanat - panier'
     );
 });
-
-$router->get('/payer', function () {
-    (new PanierController())->paiement(
-        'E-Artisanat - paiement'
-    );
-});
