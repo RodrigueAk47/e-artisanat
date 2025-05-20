@@ -2,16 +2,16 @@
     <section class="w-full sm:w-[70%] mx-auto mt-10 px-4 flex flex-col lg:flex-col gap-10 bg-white rounded-3xl shadow-lg py-10">
         <!-- Product Image -->
         <div class=" flex flex-col items-center">
-            <img src="/assets/img/produits/masque.png" alt="Masque traditionnel africain"
+            <img src="<?= $product['img_url'] ?>" alt="Masque traditionnel africain" 
                  class="w-[90%] max-w-md rounded-3xl object-cover shadow-md">
             <div class="flex gap-2 mt-4">
-                <img src="/assets/img/produits/masque.png" alt="Miniature 1" class="w-16 h-16 object-cover rounded-xl border-2 border-green-600">
-                <img src="/assets/img/produits/masque.png" alt="Miniature 2" class="w-16 h-16 object-cover rounded-xl opacity-60">
+                <img src="<?= $product['img_url'] ?>" alt="Miniature 1" class="w-16 h-16 object-cover rounded-xl border-2 border-green-600">
+                <!-- <img src="/assets/img/produits/masque.png" alt="Miniature 2" class="w-16 h-16 object-cover rounded-xl opacity-60"> -->
             </div>
         </div>
         <!-- Product Details -->
         <div class=" flex flex-col justify-center">
-            <h1 class="text-3xl font-bold mb-4 text-gray-800">Masque traditionnel africain</h1>
+            <h1 class="text-3xl font-bold mb-4 text-gray-800"><?= $product['name'] ?></h1>
             <div class="flex items-center gap-3 mb-2"></div>
             <div class="flex gap-2 mb-3 text-base">
                 <span class="flex items-center bg-green-100 text-green-700 px-2 py-1 rounded-full font-medium text-sm sm:text-base">
@@ -21,19 +21,15 @@
                     <i class="fa-solid fa-circle-check mr-1"></i> Vérifié
                 </span>
             </div>
-            <p class="text-xl text-gray-700 mb-4">
-                Ce masque traditionnel ivoirien est une pièce unique, façonnée à la main par des artisans locaux. Il incarne la richesse culturelle et l’authenticité de l’art africain.
-            </p>
             <ul class="mb-4 text-gray-600 list-disc list-inside">
-                <li>Matériau : Bois noble</li>
-                <li>Origine : Côte d’Ivoire</li>
-                <li>Dimensions : 40cm x 25cm</li>
+                <li>Matériau : <?= $product['material'] ?></li>
+                <li>Dimensions : <?= $product['dimensions'] ?></li>
                 <li>Fait main, pièce unique</li>
-                <li>Auteur : <a href="/auteur.html" class="font-bold text-green-700">Yao Kouadio</a></li>
-                <li>Pays d'origine : Côte d’Ivoire</li>
+                <li>Auteur : <a href="/auteur?id=<?= $product['author_id'] ?>" class="font-bold text-green-700"><?= $authors['first_name'] . ' ' . $authors['last_name'] ?></a></li>
+                <li>Pays d'origine : <?= $product['origin'] ?></li>
             </ul>
             <div class="flex items-center gap-4  mt-6">
-                <span class="text-2xl font-bold text-green-600">35 000 FCFA</span>
+                <span class="text-2xl font-bold text-green-600"><?= $product['price'] ?></span>
                 <span class="text-gray-400 line-through">40 000 FCFA</span>
                 <span class="bg-green-100 text-green-700 px-2 py-1 rounded text-sm font-semibold">-13%</span>
             </div>
@@ -62,7 +58,7 @@
         <div class="bg-gray-50 rounded-2xl p-6 shadow">
             <h2 class="text-xl font-bold mb-3">Description</h2>
             <p class="text-gray-700 mb-4">
-                Ce masque est utilisé lors de cérémonies traditionnelles pour célébrer l’histoire et la culture ivoirienne. Chaque détail est soigneusement sculpté, rendant chaque pièce authentique et originale.
+            <?= $product['description'] ?>
             </p>
             <h3 class="text-lg font-semibold mt-6 mb-2">Avis clients</h3>
             <div class="space-y-3">

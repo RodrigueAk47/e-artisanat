@@ -9,18 +9,20 @@
         <!-- Profil Auteur -->
         <div class="bg-white rounded-2xl shadow p-8 flex flex-col items-center md:col-span-1">
             <img src="/assets/img/avatar.png" alt="Avatar auteur" class="w-24 h-24 rounded-full mb-4 border-4 border-green-200 object-cover">
-            <h3 class="text-xl font-bold mb-1">Fatou Koné</h3>
+            <h3 class="text-xl font-bold mb-1"><?= $user['first_name'] . ' ' . $user['last_name'] ?? 'Auteur Inconnu' ?></h3>
             <p class="text-gray-600 mb-2">Artisan bijoutière</p>
-            <p class="text-gray-600 mb-4 text-center">Abidjan, Côte d’Ivoire</p>
+            <p class="text-gray-600 mb-4 text-center"><?= $user['address'] ?? 'Localisation inconnue' ?></p>
             <div class="flex gap-2 mb-3">
-            <span class="flex items-center bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-medium">
+             <?php if ($author['is_verified']): ?>
+                <span class="flex items-center bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-medium">
                 <i class="fa-solid fa-shield-halved mr-1"></i> Confiance
             </span>
             <span class="flex items-center bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-xs font-medium">
                 <i class="fa-solid fa-circle-check mr-1"></i> Vérifié
             </span>
+             <?php endif;?>
             </div>
-            <a href="mailto:fatou.kone@email.com" class="text-green-600 hover:underline text-sm mb-2 flex items-center gap-1">
+            <a href="mailto:<?= $user['email'] ?? 'email@inconnu.com' ?>" class="text-green-600 hover:underline text-sm mb-2 flex items-center gap-1">
             <i class="fa-regular fa-envelope"></i> Contacter
             </a>
             <div class="flex gap-3 mt-2">
@@ -33,13 +35,14 @@
             <h4 class="text-lg font-semibold mb-3">À propos de l'auteur</h4>
             
             <p class="text-gray-700 mb-4">
-                Passionnée par l’artisanat local, Fatou Koné crée des bijoux uniques inspirés de la culture ivoirienne. Chaque pièce est réalisée à la main avec soin et créativité.
+                <?= $author['bio'] ?? 'Aucune description disponible' ?>
             </p>
             
             <div class="flex flex-wrap gap-2">
-                <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs">Bijoux</span>
-                <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs">Artisanat</span>
-                <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs">Fait main</span>
+         
+                <?php foreach ($keywordsArray as $key): ?>
+                    <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs"><?= htmlspecialchars($key) ?></span>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>

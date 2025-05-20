@@ -9,21 +9,22 @@
         <!-- Profil utilisateur -->
         <div class="bg-white rounded-2xl shadow p-8 flex flex-col items-center">
             <img src="../assets/img/avatar.png" alt="Avatar utilisateur" class="w-24 h-24 rounded-full mb-4 border-4 border-green-200 object-cover">
-            <h3 class="text-xl font-bold mb-1">Nom Prénom</h3>
-            <p class="text-gray-600 mb-4">email@exemple.com</p>
-            <a href="#" class="text-green-600 hover:underline text-sm mb-2">Modifier le profil</a>
+            <h3 class="text-xl font-bold mb-1"><?= $_SESSION['user']['last_name'] . ' ' . $_SESSION['user']['first_name']  ?></h3>
+            <p class="text-gray-600 mb-4"><?= '+225 '. $_SESSION['user']['phone_number']?></p>
+            <a href="/modifier-profil" class="text-green-600 hover:underline text-sm mb-2">Modifier le profil</a>
 
             
 
-            <a href="#" class="text-red-500 hover:underline text-sm">Se déconnecter</a>
+            <a href="/deconnexion" class="text-red-500 hover:underline text-sm">Se déconnecter</a>
         </div>
         <!-- Informations du compte -->
         <div class="bg-white rounded-2xl shadow p-8">
             <h4 class="text-lg font-semibold mb-4">Informations du compte</h4>
             <ul class="space-y-3 text-gray-700">
-                <li><span class="font-medium">Adresse :</span> Abidjan, Côte d’Ivoire</li>
-                <li><span class="font-medium">Téléphone :</span> +225 01 23 45 67 89</li>
-                <li><span class="font-medium">Date d’inscription :</span> 12/06/2024</li>
+                <li><span class="font-medium">Adresse :</span> <?= $_SESSION['user']['address'] ?></li>
+                <li><span class="font-medium">Téléphone :</span> <?= '+225 ' . $_SESSION['user']['phone_number'] ?></li>
+                <li><span class="font-medium">Date d’inscription :</span> <?= $_SESSION['user']['created_at'] ?></li>
+                <li><span class="font-medium">Email :</span> <?= $_SESSION['user']['email'] ?></li>
             </ul>
             <hr class="my-6">
             <div class="flex items-center justify-between mb-4">

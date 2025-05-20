@@ -7,14 +7,15 @@ use App\Controllers\HomeController;
 use App\Controllers\AuthController;
 use App\Controllers\ComController;
 use App\Controllers\ProductsController;
-use App\Controllers\ProductController;
 use App\Controllers\PanierController;
 use App\Controllers\paiementController;
 
 use App\Controllers\MessagerieController;
 use App\Controllers\Admins\AdminController;
 use App\Controllers\CompteController;
-
+use App\Controllers\TestController;
+use App\Controllers\AuteurController;
+use App\Controllers\ManageSessionController;
 
 /**
  * Main Routes
@@ -36,7 +37,19 @@ $router->get('/login', function () {
     );
 });
 
+$router->post('/login', function () {
+    (new AuthController())->login(
+        'E-Artisanat - Connexion'
+    );
+});
+
 $router->get('/register', function () {
+    (new AuthController())->register(
+        'E-Artisanat - Inscription'
+    );
+}); 
+
+$router->post('/register', function () {
     (new AuthController())->register(
         'E-Artisanat - Inscription'
     );
@@ -73,7 +86,7 @@ $router->get('/products', function () {
 });
 
 $router->get('/product', function () {
-    (new ProductController())->product(
+    (new ProductsController())->product(
         'E-Artisanat - commande & négociation'
     );
 });
@@ -138,4 +151,37 @@ $router->get('/compte', function () {
         'E-Artisanat - compte'
     );
 });
+
+$router->get('/modifier-profil', function () {
+    (new CompteController())->Modifier_profil(
+        'E-Artisanat - Modifier Profil'
+    );
+});
+$router->post('/modifier-profil', function () {
+    (new CompteController())->Modifier_profil(
+        'E-Artisanat - Modifier Profil'
+    );
+});
+
+// Author Routes
+$router->get('/auteur', function () {
+    (new AuteurController())->index(
+        'E-Artisanat - Auteur'
+    );
+});
+
+$router->get('/test', function () {
+    (new TestController())->index(
+        'E-Artisanat - Test'
+    );
+});
+
+// Manager Session Routes 
+$router->get('/deconnexion', function () {
+    (new ManageSessionController())->logout(
+        'E-Artisanat - Deconnexion'
+    );
+});
+
+
 

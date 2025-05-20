@@ -21,10 +21,10 @@
             <a href="#" id="notification-btn" class="text-gray-700 hover:text-green-600 transition flex items-center" aria-label="Notifications">
                 <i class="fa-regular fa-bell text-xl"></i>
             </a>
-            <a href="/conversations.html" class="text-gray-700 hover:text-green-600 transition flex items-center" aria-label="messages">
+            <a href="/conversations" class="text-gray-700 hover:text-green-600 transition flex items-center" aria-label="messages">
                 <i class="fa-regular fa-message text-xl"></i>
             </a>
-            <a href="/panier.html" class="text-gray-700 hover:text-green-600 transition flex items-center mr-3" aria-label="Panier">
+            <a href="/panier" class="text-gray-700 hover:text-green-600 transition flex items-center mr-3" aria-label="Panier">
                 <i class="fa-solid fa-cart-shopping text-xl"></i>
             </a>
 
@@ -38,7 +38,17 @@
                     </a>
                 </div>
                 <ul class="text-gray-700 text-sm space-y-2">
-                    <li>Aucune nouvelle notification.</li>
+                    <?php if($_GET['success'] = 1) : ?>
+                        <li>
+                        <span class="font-semibold text-green-600">Inscription reussite</span> reçue de <span class="font-semibold">Administrateur</span>.
+                        <span class="block text-xs text-gray-400">il y a 2 minutes</span>
+                    </li>
+                    <?php endif?>
+                    <li>
+                        <span class="font-semibold">Votre article</span> "Panier en osier" a été ajouté aux favoris.
+                        <span class="block text-xs text-gray-400">il y a 10 minutes</span>
+                    </li>
+
                 </ul>
                 <button id="close-notification" class="mt-4 px-4 py-1 bg-green-600 text-white rounded hover:bg-green-700">Fermer</button>
             </div>
@@ -52,6 +62,7 @@
                 </a>
 
                 <!-- Account Popup -->
+                <?php if (!isset($_SESSION['user'])): ?>
                 <div id="account-popup" class="hidden absolute right-3 top-20 bg-white shadow-lg rounded-xl p-4 w-64 z-50">
                     <div class="flex items-center gap-3 mb-4">
                         <i class="fa-regular fa-user text-2xl text-green-600"></i>
@@ -61,17 +72,18 @@
                     <button id="close-account" class="w-full px-4 py-1 bg-gray-200 text-gray-700 rounded hover:bg-gray-300">Fermer</button>
                     
                 </div>
+                <?php endif; ?>
                 <?php if (isset($_SESSION['user'])): ?>
                     <div id="account-popup" class="hidden absolute right-3 top-20 bg-white shadow-lg rounded-xl p-4 w-64 z-50">
                     <div class="flex items-center gap-3 mb-4">
                         <i class="fa-regular fa-user text-2xl text-green-600"></i>
                         <div>
-                            <p class="font-semibold">Jack Lee</p>
-                            <a href="compte.html" class="text-green-600 text-sm hover:underline">Voir le profil</a>
+                            <p class="font-semibold"><?= $_SESSION['user']['last_name'] ?></p>
+                            <a href="/compte" class="text-green-600 text-sm hover:underline">Voir le profil</a>
                         </div>
                     </div>
-                    <button id="logout-btn" class="w-full px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 mb-2">Se déconnecter</button>
-                    <button id="close-account" class="w-full px-4 py-1 bg-gray-200 text-gray-700 rounded hover:bg-gray-300">Fermer</button>
+                    <a href="/deconnexion"><button id="logout-btn" class="w-full px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 mb-2">Se déconnecter</button></a>
+                    <a href="#"><button id="close-account" class="w-full px-4 py-1 bg-gray-200 text-gray-700 rounded hover:bg-gray-300">Fermer</button></a>
                 </div>
                 <?php endif; ?>
             </div>

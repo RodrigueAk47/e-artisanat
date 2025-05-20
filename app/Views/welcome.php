@@ -22,49 +22,18 @@
     <!-- ✅ Galerie de Cartes -->
     <section class="w-full sm:w-[70%] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
         <!-- Carte 1 -->
-        <a href="/products">
+         <?php foreach ($categories as $categorie): ?>
+        <a href="/products?category=<?= $categorie['id'] ?>">
             <article class="text-center">
-                <img src="assets/img/produits/masque.png" alt="Masque traditionnel africain"
+                <img src="<?= $categorie['img_url'] ?>" alt="<?= $categorie['description'] ?>"
                      loading="lazy"
                      class="w-[80%] mx-auto object-cover rounded-[40px] transition-transform duration-300 hover:scale-105">
                 <p class="mt-3 px-4 py-2 bg-gray-200 font-semibold rounded-full w-max mx-auto">
-                    Masque traditionnel africain
+                    <?= $categorie['name'] ?>
                 </p>
             </article>
         </a>
-        <!-- Carte 2 -->
-         <a href="/products">
-            <article class="text-center">
-                <img src="assets/img/produits/sculpture.png" alt="Sculpture en bois ivoirienne"
-                    loading="lazy"
-                    class="w-[80%] mx-auto object-cover rounded-[40px] transition-transform duration-300 hover:scale-105">
-                <p class="mt-3 px-4 py-2 bg-gray-200 font-semibold rounded-full w-max mx-auto">
-                    Sculpture en bois
-                </p>
-            </article>
-        </a>
-        <!-- Carte 3 -->
-         <a href="/products">
-            <article class="text-center">
-                <img src="assets/img/produits/pagne.png" alt="Tenue en pagne coloré"
-                    loading="lazy"
-                    class="w-[80%] mx-auto object-cover rounded-[40px] transition-transform duration-300 hover:scale-105">
-                <p class="mt-3 px-4 py-2 bg-gray-200 font-semibold rounded-full w-max mx-auto">
-                    Tenue en pagne coloré
-                </p>
-            </article>
-        </a>
-        <!-- Carte 4 -->
-         <a href="/products">
-            <article class="text-center">
-                <img src="assets/img/produits/poteries.png" alt="Poterie artisanale ivoirienne"
-                    loading="lazy"
-                    class="w-[80%] mx-auto object-cover rounded-[40px] transition-transform duration-300 hover:scale-105">
-                <p class="mt-3 px-4 py-2 bg-gray-200 font-semibold rounded-full w-max mx-auto">
-                    Poterie artisanale
-                </p>
-            </article>
-        </a>
+        <?php endforeach; ?>
     </section>
 
     <!-- ✅ Newsletter -->
