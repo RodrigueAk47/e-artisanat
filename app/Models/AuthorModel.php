@@ -15,13 +15,14 @@ class AuthorModel extends UserModel
        $stmt->execute([':id' => $id]);
        return $stmt->fetch(PDO::FETCH_ASSOC);
    }
-    
 
-
-
-
-
-
-
+   // isAuthor
+    public function isAuthor($id): bool
+    {
+         $sql = "SELECT * FROM authors WHERE user_id = :id";
+         $stmt = $this->db->prepare($sql);
+         $stmt->execute([':id' => $id]);
+         return $stmt->rowCount() > 0;
+    }
 
 }

@@ -51,26 +51,15 @@
         
         <h3 class="text-2xl font-bold mb-6 text-gray-800">Autres produits de Fatou Koné</h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-            <!-- Produit 1 -->
+            <? foreach ($products as $product): ?>
             <div class="bg-white rounded-xl shadow p-4 flex flex-col items-center">
-                <img src="/assets/img/produits/pagne.png" alt="Bracelet perlé" class="w-32 h-32 object-cover rounded mb-3">
-                <h4 class="font-semibold text-lg mb-1">Bracelet perlé</h4>
-                <span class="text-green-600 font-bold mb-2">5 000 FCFA</span>
-                <a href="produit.html?id=1" class="text-sm text-green-600 hover:underline">Voir le produit</a>
+                <img src="<?= $product['img_url'] ?>" alt="<?= htmlspecialchars($product['name']) ?>" class="w-32 h-32 object-cover rounded mb-3">
+                <h4 class="font-semibold text-lg mb-1"><?= htmlspecialchars($product['name']) ?></h4>
+                <span class="text-green-600 font-bold mb-2"><?= htmlspecialchars($product['price']) ?> FCFA</span>
+                <a href="product?id=<?= $product['id'] ?>" class="text-sm text-green-600 hover:underline">Voir le produit</a>
             </div>
-            <!-- Produit 2 -->
-            <div class="bg-white rounded-xl shadow p-4 flex flex-col items-center">
-                <img src="/assets/img/produits/sculpture.png" alt="Collier africain" class="w-32 h-32 object-cover rounded mb-3">
-                <h4 class="font-semibold text-lg mb-1">Collier africain</h4>
-                <span class="text-green-600 font-bold mb-2">8 000 FCFA</span>
-                <a href="produit.html?id=2" class="text-sm text-green-600 hover:underline">Voir le produit</a>
-            </div>
-            <div class="bg-white rounded-xl shadow p-4 flex flex-col items-center">
-                <img src="/assets/img/produits/poteries.png" alt="Collier africain" class="w-32 h-32 object-cover rounded mb-3">
-                <h4 class="font-semibold text-lg mb-1">Collier africain</h4>
-                <span class="text-green-600 font-bold mb-2">8 000 FCFA</span>
-                <a href="produit.html?id=2" class="text-sm text-green-600 hover:underline">Voir le produit</a>
-            </div>
+            <? endforeach; ?>
+
         </div>
     </section>
 </main>

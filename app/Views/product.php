@@ -25,7 +25,7 @@
                 <li>Matériau : <?= $product['material'] ?></li>
                 <li>Dimensions : <?= $product['dimensions'] ?></li>
                 <li>Fait main, pièce unique</li>
-                <li>Auteur : <a href="/auteur?id=<?= $product['author_id'] ?>" class="font-bold text-green-700"><?= $authors['first_name'] . ' ' . $authors['last_name'] ?></a></li>
+                <li>Auteur : <a href="/author?id=<?= $product['author_id'] ?>" class="font-bold text-green-700"><?= $authors['first_name'] . ' ' . $authors['last_name'] ?></a></li>
                 <li>Pays d'origine : <?= $product['origin'] ?></li>
             </ul>
             <div class="flex items-center gap-4  mt-6">

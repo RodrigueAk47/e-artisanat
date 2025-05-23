@@ -53,4 +53,14 @@ class ProductsModel
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    // get all products and categories by author id
+    public function getAllProductsAndCategoriesByAuthorId(int $authorId): array
+    {
+        $sql = "SELECT p.id, p.name, p.price, p.stock, c.name AS category_name FROM products p INNER JOIN products_categories c ON p.category_id = c.id WHERE p.author_id = :author_id";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindParam(':author_id', $authorId, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 }

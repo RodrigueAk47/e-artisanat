@@ -29,9 +29,9 @@ function isActive($route, $currentRoute) {
                <?php echo isActive('/admin/orders', $currentRoute) ? 'text-green-700 bg-green-100 font-semibold' : 'hover:bg-gray-100'; ?>">
                 <i class="fa-solid fa-shopping-cart"></i> Commandes
             </a>
-            <a href="/admin/messages"
+            <a href="/conversations"
                class="flex items-center gap-3 px-4 py-2 rounded
-               <?php echo isActive('/admin/messages', $currentRoute) ? 'text-green-700 bg-green-100 font-semibold' : 'hover:bg-gray-100'; ?>">
+               <?php echo isActive('/conversations', $currentRoute) ? 'text-green-700 bg-green-100 font-semibold' : 'hover:bg-gray-100'; ?>">
                 <i class="fa-solid fa-comments"></i> Messages
             </a>
             <a href="/admin/settings"

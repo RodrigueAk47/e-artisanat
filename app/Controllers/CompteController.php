@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 use App\Models\UserModel;
+use App\Models\AuthorModel;
 
 class CompteController
 {
@@ -9,6 +10,8 @@ class CompteController
     {
         session_start();
 
+        $authorModel = new AuthorModel();
+        $isAuthor = $authorModel->isAuthor($_SESSION['user']['id']);
         require_once __DIR__ . '/../Views/layouts/header.php';
         require_once __DIR__ .'/../Views/compte/compte.php';
         require_once __DIR__ . '/../Views/layouts/footer.php';

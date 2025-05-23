@@ -14,7 +14,7 @@ use App\Controllers\MessagerieController;
 use App\Controllers\Admins\AdminController;
 use App\Controllers\CompteController;
 use App\Controllers\TestController;
-use App\Controllers\AuteurController;
+use App\Controllers\AuthorController;
 use App\Controllers\ManageSessionController;
 
 /**
@@ -109,36 +109,32 @@ $router->get('/payer', function () {
  * Admin Routes
  */
 $router->get('/admin', function () {
-    (new AdminController())->index(
+    (new AdminController())->admin_dashboard_view(
         'E-Artisanat - Admin Dashboard'
     );
 });
 
 $router->get('/admin/users', function () {
-    (new AdminController())->users(
+    (new AdminController())->admin_users_view(
         'E-Artisanat - Admin Users'
     );
 });
 
 $router->get('/admin/products', function () {
-    (new AdminController())->products(
+    (new AdminController())->admin_products_view(
         'E-Artisanat - Admin Products'
     );
 });
 
 $router->get('/admin/orders', function () {
-    (new AdminController())->orders(
+    (new AdminController())->admin_orders_view(
         'E-Artisanat - Admin Orders'
     );
 });
-$router->get('/admin/messages', function () {
-    (new AdminController())->messages(
-        'E-Artisanat - Admin Messages'
-    );
-});
+
 
 $router->get('/admin/settings', function () {
-    (new AdminController())->settings(
+    (new AdminController())->admin_settings_view(
         'E-Artisanat - Admin Settings'
     );
 });
@@ -164,11 +160,35 @@ $router->post('/modifier-profil', function () {
 });
 
 // Author Routes
-$router->get('/auteur', function () {
-    (new AuteurController())->index(
+$router->get('/author', function () {
+    (new AuthorController())->author_view_guest(
         'E-Artisanat - Auteur'
     );
 });
+
+$router->get('/author/dashboard', function () {
+    (new AuthorController())->author_dashboard_view(
+        'E-Artisanat - Tableau de bord Auteur'
+    );
+});
+
+$router->get('/author/products', function () {
+    (new AuthorController())->author_products_view(
+        'E-Artisanat - Produits Auteur'
+    );
+});
+$router->get('/author/orders', function () {
+    (new AuthorController())->author_orders_view(
+        'E-Artisanat - Commandes Auteur'
+    );
+});
+$router->get('/author/settings', function () {
+    (new AuthorController())->author_settings_view(
+        'E-Artisanat - Paramètres Auteur'
+    );
+});
+
+
 
 $router->get('/test', function () {
     (new TestController())->index(

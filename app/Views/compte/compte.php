@@ -16,7 +16,16 @@
             
 
             <a href="/deconnexion" class="text-red-500 hover:underline text-sm">Se déconnecter</a>
+              <!-- add author -->
+               <?php if ($isAuthor): ?>
+            <div class="flex items-center justify-between mt-6">
+                <a href="/author/dashboard" class="bg-green-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-green-700 transition flex items-center gap-2">
+                    <i class="fa-solid fa-user"></i> Je suis auteur
+                </a>
+            </div>
+            <?php endif; ?>
         </div>
+        
         <!-- Informations du compte -->
         <div class="bg-white rounded-2xl shadow p-8">
             <h4 class="text-lg font-semibold mb-4">Informations du compte</h4>
@@ -26,6 +35,8 @@
                 <li><span class="font-medium">Date d’inscription :</span> <?= $_SESSION['user']['created_at'] ?></li>
                 <li><span class="font-medium">Email :</span> <?= $_SESSION['user']['email'] ?></li>
             </ul>
+          
+      
             <hr class="my-6">
             <div class="flex items-center justify-between mb-4">
                 <h4 class="text-lg font-semibold">Mes commandes</h4>
