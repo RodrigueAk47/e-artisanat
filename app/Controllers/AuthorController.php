@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\AuthorModel;
+use App\Models\ProductsCategoriesModel;
 use App\Models\ProductsModel;
 
 class AuthorController
@@ -40,7 +41,7 @@ class AuthorController
         require_once __DIR__ . '/../Views/layouts/footer.php';
     }
 
-
+// products
     public function author_products_view(string $title)
     {
         session_start();
@@ -52,6 +53,25 @@ class AuthorController
         require_once __DIR__ . '/../Views/authors/products/author_products_view.php';
         require_once __DIR__ . '/../Views/layouts/footer.php';
     }
+
+    public function author_edit_product_view(string $title)
+    {
+        session_start();
+        $categoriesModel = new ProductsCategoriesModel();
+        $categories = $categoriesModel->getAllproducts_categories();
+
+        $productsModel = new ProductsModel();
+        $product = $productsModel->getProductById($_GET['id']);
+        require_once __DIR__ . '/../Views/layouts/header.php';
+        require_once __DIR__ . '/../Views/authors/author_layouts/author_sidebar_part.php';
+        require_once __DIR__ . '/../Views/authors/products/author_edit_products_view.php';
+        require_once __DIR__ . '/../Views/layouts/footer.php';
+    }
+
+
+
+
+
     public function author_orders_view(string $title)
     {
         session_start();

@@ -177,6 +177,12 @@ $router->get('/author/products', function () {
         'E-Artisanat - Produits Auteur'
     );
 });
+
+$router->get('/author/products/edit', function () {
+    (new AuthorController())->author_edit_product_view(
+        'E-Artisanat - Modifier Produit Auteur'
+    );
+});
 $router->get('/author/orders', function () {
     (new AuthorController())->author_orders_view(
         'E-Artisanat - Commandes Auteur'

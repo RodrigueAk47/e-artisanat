@@ -28,9 +28,8 @@
                                 <td class="py-2 px-4"><?= $product['price'] ?> FCFA</td>
                                 <td class="py-2 px-4"><?= $product['stock'] ?></td>
                                 <td class="py-2 px-4">
-                                    <a href="/author/products/view/<?= $product['id'] ?>" class="text-blue-600 hover:underline mr-2">Voir</a>
-                                    <a href="/author/products/edit/<?= $product['id'] ?>" class="text-green-600 hover:underline mr-2">Éditer</a>
-                                    <a href="/author/products/delete/<?= $product['id'] ?>" class="text-red-600 hover:underline" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce produit ?');">Supprimer</a>      
+                                    <a href="/author/products/edit?id=<?= $product['id'] ?>" class="text-green-600 hover:underline mr-2">Éditer</a>
+                                    <a href="/author/products/delete?id=<?= $product['id'] ?>" class="text-red-600 hover:underline" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce produit ?');">Supprimer</a>      
                                 </td>
                             </tr>
                             <?php endforeach; ?>
