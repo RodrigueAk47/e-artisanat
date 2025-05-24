@@ -144,4 +144,39 @@ class AuthorController
         require_once __DIR__ . '/../Views/layouts/layouts_footer_part.php';
     }
 
+    public function author_uploads_view(string $title)
+    {
+        session_start();
+        $uploadedFileUrl = null;
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['photos'])) {
+            $uploadDir = __DIR__ . '/../../../public/uploads/';
+            if (!is_dir($uploadDir)) {
+                mkdir($uploadDir, 0777, true);
+            }
+            $files = $_FILES['photos'];
+            $uploadedFiles = [];
+            for ($i = 0; $i < count($files['name']); $i++) {
+                if ($files['error'][$i] === UPLOAD_ERR_OK) {
+                    $tmpName = $files['tmp_name'][$i];
+                    $fileName = basename($files['name'][$i]);
+                    $targetPath = $uploadDir . $fileName;
+                    if (move_uploaded_file($tmpName, $targetPath)) {
+                        $uploadedFiles[] = '/uploads/' . $fileName;
+                    }
+                }
+            }
+            if (!empty($uploadedFiles)) {
+                $uploadedFileUrl = $uploadedFiles; // tableau des URLs uploadées
+                var_dump($uploadedFiles);
+                
+            }
+            exit;
+
+        }
+        require_once __DIR__ . '/../Views/layouts/layouts_header_part.php';
+        require_once __DIR__ . '/../Views/authors/author_layouts/author_sidebar_part.php';
+        require_once __DIR__ . '/../Views/authors/products/author_uploads_view.php';
+        require_once __DIR__ . '/../Views/layouts/layouts_footer_part.php';
+    }
+
 }

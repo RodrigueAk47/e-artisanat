@@ -24,6 +24,14 @@
                 </a>
             </div>
             <?php endif; ?>
+
+            <?php if ($_SESSION['user']['role'] == 'admin'): ?>
+            <div class="flex items-center justify-between mt-6">
+                <a href="/admin" class="bg-green-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-green-700 transition flex items-center gap-2">
+                    <i class="fa-solid fa-user"></i> Tableau de bord administrateur
+                </a>
+            </div>
+            <?php endif; ?>
         </div>
         
         <!-- Informations du compte -->

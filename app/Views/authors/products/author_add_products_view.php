@@ -10,25 +10,24 @@
             <div class="bg-white rounded-xl shadow p-6 max-w-2xl mx-auto">
                 <form>
                     <div class="mb-4">
-                        <label class="block font-semibold mb-2" for="productName">Nom du produit</label>
-                        <input type="text" id="productName" name="productName" value="Pagne tissé" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" required>
+                        <label class="block font-semibold mb-2" for="name">Nom du produit</label>
+                        <input type="text" id="name" name="name" value="" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" required>
                     </div>
                     <div class="mb-4">
                         <label class="block font-semibold mb-2" for="category">Catégorie</label>
-                        <select id="category" name="category" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" required>
-                            <option value="Textile" selected>Textile</option>
-                            <option value="Bijoux">Bijoux</option>
-                            <option value="Décoration">Décoration</option>
-                            <option value="Accessoires">Accessoires</option>
+                        <select id="category" name="category_id" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" required>
+                            <?php foreach ($categories as $category): ?>
+                                <option value="<?= $category['id'] ?>"><?= $category['name'] ?></option>
+                            <?php endforeach; ?>
                         </select>
                     </div>
                     <div class="mb-4">
                         <label class="block font-semibold mb-2" for="price">Prix (FCFA)</label>
-                        <input type="number" id="price" name="price" value="15000" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" required>
+                        <input type="number" id="price" name="price" placeholder="30 000" value="" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" required>
                     </div>
                     <div class="mb-4">
                         <label class="block font-semibold mb-2" for="stock">Stock</label>
-                        <input type="number" id="stock" name="stock" value="8" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" required>
+                        <input type="number" id="stock" name="stock" value="" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" required>
                     </div>
                     <div class="mb-4">
                         <label class="block font-semibold mb-2" for="description">Description</label>

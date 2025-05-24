@@ -9,7 +9,7 @@ use App\Controllers\PanierController;
 use App\Controllers\paiementController;
 
 
-use App\Controllers\Admins\AdminController;
+use App\Controllers\AdminController;
 use App\Controllers\CompteController;
 use App\Controllers\TestController;
 use App\Controllers\AuthorController;
@@ -214,7 +214,18 @@ $router->get('/author/settings', function () {
     );
 });
 
+$router->get('/author/galerie', function () {
+    (new AuthorController())->author_uploads_view(
+        'E-Artisanat - Galerie Auteur'
+    );
+});
 
+
+$router->post('/author/galerie', function () {
+    (new AuthorController())->author_uploads_view(
+        'E-Artisanat - Galerie Auteur'
+    );
+});
 
 $router->get('/test', function () {
     (new TestController())->index(
