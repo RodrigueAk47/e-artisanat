@@ -1,21 +1,21 @@
         <main class="flex-1 p-8">
             <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-8 gap-4">
                 <h1 class="text-3xl font-bold">Éditer un produit</h1>
-                <a href="products.html" class="bg-gray-200 text-gray-700 px-5 py-2 rounded-lg font-semibold hover:bg-gray-300 transition flex items-center gap-2">
+                <a href="/author/products" class="bg-gray-200 text-gray-700 px-5 py-2 rounded-lg font-semibold hover:bg-gray-300 transition flex items-center gap-2">
                     <i class="fa-solid fa-arrow-left"></i> Retour à la liste
                 </a>
             </div>
 
             <!-- Edit Product Form -->
             <div class="bg-white rounded-xl shadow p-6 max-w-2xl mx-auto">
-                <form>
+                <form method="POST" action="">
                     <div class="mb-4">
                         <label class="block font-semibold mb-2" for="productName">Nom du produit</label>
-                        <input type="text" id="productName" name="productName" value="<?= $product['name'] ?>" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" required>
+                        <input type="text" id="productName" name="name" value="<?= $product['name'] ?>" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" required>
                     </div>
                     <div class="mb-4">
                         <label class="block font-semibold mb-2" for="category">Catégorie</label>
-                        <select id="category" name="category" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" required>
+                        <select id="category" name="category_id" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" required>
                             <?php foreach ($categories as $category): ?>
                                 <option value="<?= $category['id'] ?>" <?= $category['id'] === $product['category_id'] ? 'selected' : '' ?>><?= $category['name'] ?></option>
                             <?php endforeach; ?>

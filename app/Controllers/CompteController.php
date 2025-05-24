@@ -12,9 +12,9 @@ class CompteController
 
         $authorModel = new AuthorModel();
         $isAuthor = $authorModel->isAuthor($_SESSION['user']['id']);
-        require_once __DIR__ . '/../Views/layouts/header.php';
+        require_once __DIR__ . '/../Views/layouts/layouts_header_part.php';
         require_once __DIR__ .'/../Views/compte/compte.php';
-        require_once __DIR__ . '/../Views/layouts/footer.php';
+        require_once __DIR__ . '/../Views/layouts/layouts_footer_part.php';
     }
 
     public function Modifier_profil(string $title)
@@ -52,9 +52,9 @@ class CompteController
             // Redirection vers la page de compte
             header('Location: /compte');
         }
-        require_once __DIR__ . '/../Views/layouts/header.php';
+        require_once __DIR__ . '/../Views/layouts/layouts_header_part.php';
         require_once __DIR__ .'/../Views/compte/modifier-profil.php';
-        require_once __DIR__ . '/../Views/layouts/footer.php';
+        require_once __DIR__ . '/../Views/layouts/layouts_footer_part.php';
     }
 
 }

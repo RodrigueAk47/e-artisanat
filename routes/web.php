@@ -3,26 +3,27 @@
 
 global $router;
 
-use App\Controllers\HomeController;
 use App\Controllers\AuthController;
-use App\Controllers\ComController;
 use App\Controllers\ProductsController;
 use App\Controllers\PanierController;
 use App\Controllers\paiementController;
 
-use App\Controllers\MessagerieController;
+
 use App\Controllers\Admins\AdminController;
 use App\Controllers\CompteController;
 use App\Controllers\TestController;
 use App\Controllers\AuthorController;
 use App\Controllers\ManageSessionController;
+use App\Controllers\MessagesController;
+use App\Controllers\OrdersController;
+use App\Controllers\WelcomeController;
 
 /**
  * Main Routes
  */
 
 $router->get('/', function () {
-    (new HomeController())->index(
+    (new WelcomeController())->welcome_view(
         'E-Artisanat - Accueil'
     );
 });
@@ -32,25 +33,25 @@ $router->get('/', function () {
  * Formular Routes
  */
 $router->get('/login', function () {
-    (new AuthController())->login(
+    (new AuthController())->login_view(
         'E-Artisanat - Connexion'
     );
 });
 
 $router->post('/login', function () {
-    (new AuthController())->login(
+    (new AuthController())->login_view(
         'E-Artisanat - Connexion'
     );
 });
 
 $router->get('/register', function () {
-    (new AuthController())->register(
+    (new AuthController())->register_view(
         'E-Artisanat - Inscription'
     );
 }); 
 
 $router->post('/register', function () {
-    (new AuthController())->register(
+    (new AuthController())->register_view(
         'E-Artisanat - Inscription'
     );
 }); 
@@ -58,14 +59,14 @@ $router->post('/register', function () {
 /**
  * Messagerie Routes
  */
-$router->get('/conversations', function () {
-    (new MessagerieController())->conversations(
+$router->get('/messages', function () {
+    (new MessagesController())->messages_view(
         'E-Artisanat - Messagerie'
     );
 });
 
-$router->get('/conversation', function () {
-    (new MessagerieController())->conversation(
+$router->get('/message', function () {
+    (new MessagesController())->message_view(
         'E-Artisanat - Messagerie'
     );
 });
@@ -73,20 +74,20 @@ $router->get('/conversation', function () {
 /**
  * Product Routes
  */
-$router->get('/commander', function () {
-    (new ComController())->commander(
+$router->get('/buy', function () {
+    (new OrdersController())->buy_view(
         'E-Artisanat - Commande'
     );
 });
 
 $router->get('/products', function () {
-    (new ProductsController())->products(
+    (new ProductsController())->products_view(
         'E-Artisanat - production'
     );
 });
 
 $router->get('/product', function () {
-    (new ProductsController())->product(
+    (new ProductsController())->product_view(
         'E-Artisanat - commande & négociation'
     );
 });
@@ -183,6 +184,25 @@ $router->get('/author/products/edit', function () {
         'E-Artisanat - Modifier Produit Auteur'
     );
 });
+
+$router->post('/author/products/edit', function () {
+    (new AuthorController())->author_edit_product_view(
+        'E-Artisanat - Modifier Produit Auteur'
+    );
+});
+
+$router->get('/author/products/add', function () {
+    (new AuthorController())->author_add_product_view(
+        'E-Artisanat - Ajouter Produit Auteur'
+    );
+});
+
+$router->post('/author/products/add', function () {
+    (new AuthorController())->author_add_product_view(
+        'E-Artisanat - Ajouter Produit Auteur'
+    );
+});
+
 $router->get('/author/orders', function () {
     (new AuthorController())->author_orders_view(
         'E-Artisanat - Commandes Auteur'

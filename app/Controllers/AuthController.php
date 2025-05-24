@@ -7,7 +7,7 @@ use App\Models\UserModel;
 
 class AuthController
 {
-    public function login(string $title)
+    public function login_view(string $title)
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $number = str_replace(' ', '', trim($_POST['phone_number']));
@@ -32,12 +32,12 @@ class AuthController
                 echo "Invalid phone number or password.";
             }
         }
-        require_once __DIR__ . '/../Views/layouts/header.php';
-        require_once __DIR__ . '/../Views/forms/login.php';
-        require_once __DIR__ . '/../Views/layouts/footer.php';
+        require_once __DIR__ . '/../Views/layouts/layouts_header_part.php';
+        require_once __DIR__ . '/../Views/forms/forms_login_view.php';
+        require_once __DIR__ . '/../Views/layouts/layouts_footer_part.php';
     }
 
-    public function register(string $title)
+    public function register_view(string $title)
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $last_name = ucfirst(strtolower(trim($_POST['last_name'])) );
@@ -64,8 +64,8 @@ class AuthController
                 echo "Failed to register user.";
             }
         }
-        require_once __DIR__ . '/../Views/layouts/header.php';
-        require_once __DIR__ . '/../Views/forms/register.php';
-        require_once __DIR__ . '/../Views/layouts/footer.php';
+        require_once __DIR__ . '/../Views/layouts/layouts_header_part.php';
+        require_once __DIR__ . '/../Views/forms/forms_register_view.php';
+        require_once __DIR__ . '/../Views/layouts/layouts_footer_part.php';
     }
 }
