@@ -17,6 +17,7 @@ use App\Controllers\ManageSessionController;
 use App\Controllers\MessagesController;
 use App\Controllers\OrdersController;
 use App\Controllers\WelcomeController;
+use App\Controllers\CartController;
 
 /**
  * Main Routes
@@ -92,10 +93,14 @@ $router->get('/product', function () {
     );
 });
 
-$router->get('/panier', function () {
+$router->get('/cart', function () {
     (new PanierController())->panier(
         'E-Artisanat - panier'
     );
+});
+
+$router->get('/cart/remove', function () {
+    (new PanierController())->removeFromCart();
 });
 
 
@@ -227,6 +232,12 @@ $router->post('/author/galerie', function () {
     );
 });
 
+$router->get('/author/apply', function () {
+    (new AuthorController())->author_apply_view(
+        'E-Artisanat - Demande Auteur'
+    );
+});
+
 $router->get('/test', function () {
     (new TestController())->index(
         'E-Artisanat - Test'
@@ -241,4 +252,13 @@ $router->get('/deconnexion', function () {
 });
 
 
+
+/**
+ * Cart Routes
+ */
+$router->get('/cart/add', function () {
+    (new CartController())->addToCart(
+        $_GET['id'] ?? 0,
+    );
+});
 

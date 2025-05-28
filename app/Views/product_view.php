@@ -1,3 +1,5 @@
+
+
 <main class="flex-grow">
     <section class="w-full sm:w-[70%] mx-auto mt-10 px-4 flex flex-col lg:flex-col gap-10 bg-white rounded-3xl shadow-lg py-10">
         <!-- Product Image -->
@@ -35,6 +37,9 @@
             </div>
             
             <div class="flex gap-4 mb-6 mt-6">
+                <a href="/cart/add?id=<?= $product['id'] ?>" class="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 font-semibold transition flex-1">
+                    Panier
+                </a>
                 <a href="/panier" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 font-semibold transition flex-1">
                     Commander
                 </a>

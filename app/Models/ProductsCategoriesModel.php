@@ -17,7 +17,7 @@ class ProductsCategoriesModel
     // Get all categories
     public function getAllproducts_categories(): array
     {
-        $sql = "SELECT * FROM products_categories";
+        $sql = "SELECT p.*, u.file_url as img_url FROM products_categories p INNER JOIN uploads u ON p.img_id = u.id";
         $stmt = $this->db->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);

@@ -8,4 +8,8 @@ RUN apt-get update && apt-get install -y \
 # Installer Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
+# Configuration PHP personnalisée (upload)
+COPY custom-php.ini /usr/local/etc/php/conf.d/
+
+# Définir le dossier de travail
 WORKDIR /var/www

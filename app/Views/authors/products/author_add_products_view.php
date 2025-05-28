@@ -8,7 +8,7 @@
 
             <!-- Edit Product Form -->
             <div class="bg-white rounded-xl shadow p-6 max-w-2xl mx-auto">
-                <form>
+                <form action="" method="POST">
                     <div class="mb-4">
                         <label class="block font-semibold mb-2" for="name">Nom du produit</label>
                         <input type="text" id="name" name="name" value="" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" required>
@@ -33,15 +33,32 @@
                         <label class="block font-semibold mb-2" for="description">Description</label>
                         <textarea id="description" name="description" rows="4" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">Un pagne tissé artisanal de grande qualité.</textarea>
                     </div>
+                    
                     <div class="mb-6">
-                        <label class="block font-semibold mb-2">Image du produit</label>
-                        <input type="file" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-green-50 file:text-green-700 hover:file:bg-green-100"/>
-                        <div class="mt-2">
-                            <img src="https://via.placeholder.com/120x80?text=Image" alt="Aperçu" class="h-20 rounded shadow border">
+                        <label class="block font-semibold mb-2">Images du produit</label>
+                        <div class="flex gap-2" id="image-selection-container">
+                            <?php foreach ($uploadedFiles as $image): ?>
+                                <img src="<?= htmlspecialchars($image['file_url']) ?>" 
+                                     alt="Image produit" 
+                                     class="h-20 rounded shadow border cursor-pointer border-2 border-transparent hover:border-green-500"
+                                     data-image-id="<?= $image['id'] ?>">
+                            <?php endforeach; ?>
                         </div>
+                        <input type="hidden" name="selected_image_id" id="selected-image-id" value="">
+                        <p class="text-xs text-gray-500 mt-2">Cliquez sur une image pour la sélectionner</p>
                     </div>
-                    <div class="mb-4">
-                        <label class="block font-semibold mb-2" for="dimensions">Dimensions</label>
+                    <script>
+                    document.querySelectorAll('#image-selection-container img').forEach(img => {
+                        img.addEventListener('click', function() {
+                            document.querySelectorAll('#image-selection-container img').forEach(i => {
+                                i.classList.remove('border-green-600');
+                            });
+                            this.classList.add('border-green-600');
+                            document.getElementById('selected-image-id').value = this.dataset.imageId;
+                        });
+                    });
+                    </script>
+                    <div class="mb-4">   <label class="block font-semibold mb-2" for="dimensions">Dimensions</label>
                         <input type="text" id="dimensions" name="dimensions" placeholder="60cm x 80cm" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" required>
                     </div>
                     <div class="mb-4">

@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS users (
   first_name VARCHAR(100) NOT NULL,
   age SMALLINT CHECK (age >= 0) DEFAULT 0,
   phone_number VARCHAR(20) NOT NULL UNIQUE,
-  email VARCHAR(255) UNIQUE DEFAULT 'Non defini',
+  email VARCHAR(255)  DEFAULT 'Non defini',
   address VARCHAR(255) DEFAULT 'Non defini',
   password_hash VARCHAR(255) NOT NULL,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -20,11 +20,6 @@ CREATE TABLE IF NOT EXISTS users (
   );
 
   -- insert into products_categories
-  INSERT INTO products_categories (name, description, img_url) VALUES
-  ('Electronics', 'Devices and gadgets', '/assets/img/produits/masque.png'),
-  ('Clothing', 'Apparel and accessories', '/assets/img/produits/pagne.png'),
-  ('Home & Kitchen', 'Household items and kitchenware', '/assets/img/produits/sculpture.png'),
-  ('Books', 'Literature and educational materials', '/assets/img/produits/poteries.png');
 
   -- products
   CREATE TABLE IF NOT EXISTS products (
@@ -34,7 +29,7 @@ CREATE TABLE IF NOT EXISTS users (
     price DECIMAL(10, 2) NOT NULL,
     stock INT CHECK (stock >= 0),
     category_id INT NOT NULL,
-    img_url VARCHAR(255) NOT NULL,
+    img_id INT NOT NULL,
     dimensions VARCHAR(50) DEFAULT 'N/A',
     origin VARCHAR(100) DEFAULT 'N/A',
     author_id INT NOT NULL,
@@ -45,16 +40,6 @@ CREATE TABLE IF NOT EXISTS users (
   );
 
   -- insert 10 products
-  INSERT INTO products (name, description, price, stock, category_id, img_url, dimensions, origin, author_id, material) VALUES
-  ('Wireless Headphones', 'Bluetooth over-ear headphones with noise cancellation.', 89.99, 50, 1, '/assets/img/produits/masque.png', 'N/A', 'N/A', 3, 'N/A'),
-  ('Bluetooth Speaker', 'Portable Bluetooth speaker with high-quality sound.', 49.99, 20, 2, '/assets/img/produits/pagne.png', 'N/A', 'N/A', 3, 'N/A'),
-  ('Smartphone Case', 'Durable case for iPhone and Samsung smartphones.', 15.99, 150, 3, '/assets/img/produits/sculpture.png', 'N/A', 'N/A', 3, 'N/A'),
-  ('Laptop Stand', 'Adjustable laptop stand for ergonomic use.', 39.99, 75, 4, '/assets/img/produits/poteries.png', 'N/A', 'N/A', 3, 'N/A'),
-  ('Wireless Headphones', 'Bluetooth over-ear headphones with noise cancellation.', 89.99, 50, 2, '/assets/img/produits/masque.png', 'N/A', 'N/A', 3, 'N/A'),
-  ('Bluetooth Speaker', 'Portable Bluetooth speaker with high-quality sound.', 49.99, 20, 2, '/assets/img/produits/pagne.png', 'N/A', 'N/A', 3, 'N/A'),
-  ('Smartphone Case', 'Durable case for iPhone and Samsung smartphones.', 15.99, 150, 3, '/assets/img/produits/sculpture.png', 'N/A', 'N/A', 3, 'N/A'),
-  ('Laptop Stand', 'Adjustable laptop stand for ergonomic use.', 39.99, 75, 4, '/assets/img/produits/poteries.png', 'N/A', 'N/A', 3, 'N/A');
-
 
 -- Authors
 CREATE TABLE IF NOT EXISTS authors (
@@ -70,3 +55,45 @@ CREATE TABLE IF NOT EXISTS authors (
   FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
+CREATE TABLE uploads (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    author_id INTEGER NOT NULL,
+    file_url TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 1) Table des commandes
+CREATE TABLE IF NOT EXISTS commandes (
+  id                SERIAL        PRIMARY KEY,
+  user_id           INTEGER       NOT NULL
+                                REFERENCES users(id)
+                                  ON DELETE CASCADE,
+  date_commande     DATE          NOT NULL
+                                DEFAULT CURRENT_DATE,
+  statut            VARCHAR(30)   NOT NULL
+                                CHECK (statut IN (
+                                  'En attente','Payée','Expédiée','Livrée','Annulée'
+                                )),
+  total             NUMERIC(12,2) NOT NULL
+                                CHECK (total >= 0),
+  adresse_livraison TEXT
+);
+
+-- 2) Table des lignes de commande
+CREATE TABLE IF NOT EXISTS ligne_commandes (
+  id               SERIAL        PRIMARY KEY,
+  commande_id      INTEGER       NOT NULL
+                                REFERENCES commandes(id)
+                                  ON DELETE CASCADE,
+  product_id       INTEGER       NOT NULL
+                                REFERENCES products(id)
+                                  ON DELETE RESTRICT,
+  quantite         INTEGER       NOT NULL
+                                CHECK (quantite > 0),
+  prix_unitaire    NUMERIC(10,2) NOT NULL
+                                CHECK (prix_unitaire >= 0),
+  montant          NUMERIC(14,2) GENERATED ALWAYS AS (
+                      quantite * prix_unitaire
+                    ) STORED
+);

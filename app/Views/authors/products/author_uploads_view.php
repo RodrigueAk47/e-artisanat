@@ -8,18 +8,20 @@
 
             <!-- Upload Photos Section -->
             <div class="bg-white rounded-xl shadow p-6 max-w-2xl mx-auto">
-                <form action="" method="POST" >
+                <form action="" method="POST"  enctype="multipart/form-data">
                     <div class="mb-6">
                         <label class="block font-semibold mb-2">Téléverser des photos</label>
-                        <input type="file" multiple accept="image/*" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-green-50 file:text-green-700 hover:file:bg-green-100"/>
+                        <input type="file" name="photos[]" id="photos" multiple accept="image/*" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-green-50 file:text-green-700 hover:file:bg-green-100"/>
                         <p class="text-xs text-gray-500 mt-2">Formats acceptés : JPG, PNG. Taille max : 5Mo par image.</p>
                     </div>
                     <div class="mb-6">
                         <label class="block font-semibold mb-2">Aperçu des photos</label>
                         <div class="flex gap-4 flex-wrap">
-                            <img src="../../assets/img/hero.png" alt="Aperçu 1" class="h-20 rounded shadow border">
-                            <img src="/assets/img/hero.png" alt="Aperçu 2" class="h-20 rounded shadow border">
-                            <img src="/assets/img/hero.png" alt="Aperçu 3" class="h-20 rounded shadow border">
+                            <?php foreach ($uploadedFiles as $file): ?>
+                                <img src="<?= htmlspecialchars($file['file_url']) ?>" alt="<?= htmlspecialchars($file['title']) ?>" class="h-20 rounded shadow border">
+                            <?php endforeach; ?>
+                          
+
                         </div>
                     </div>
                     <div class="flex justify-end gap-4">

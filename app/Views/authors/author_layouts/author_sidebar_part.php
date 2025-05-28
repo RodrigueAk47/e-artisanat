@@ -34,6 +34,11 @@ function isActive($route, $currentRoute) {
                <?php echo isActive('/author/settings', $currentRoute) ? 'text-green-700 bg-green-100 font-semibold' : 'hover:bg-gray-100'; ?>">
                 <i class="fa-solid fa-shopping-cart"></i> Paramètres
             </a>
-           
+           <a href="/author/galerie"
+               class="flex items-center gap-3 px-4 py-2 rounded
+               <?php echo isActive('/author/galerie', $currentRoute) ? 'text-green-700 bg-green-100 font-semibold' : 'hover:bg-gray-100'; ?>">
+                <i class="fa-solid fa-image"></i> Galerie
+            </a>
+        </nav>
     </aside>
 

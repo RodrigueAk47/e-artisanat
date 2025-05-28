@@ -23,6 +23,13 @@
                     <i class="fa-solid fa-user"></i> Je suis auteur
                 </a>
             </div>
+              <?php else: ?>
+                <div class="flex items-center justify-center mt-6">
+                    <a href="/author/apply"
+                       class="bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition flex items-center gap-2">
+                        <i class="fa-solid fa-pen"></i> Devenir auteur
+                    </a>
+                </div>
             <?php endif; ?>
 
             <?php if ($_SESSION['user']['role'] == 'admin'): ?>
