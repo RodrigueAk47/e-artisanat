@@ -18,6 +18,7 @@ use App\Controllers\MessagesController;
 use App\Controllers\OrdersController;
 use App\Controllers\WelcomeController;
 use App\Controllers\CartController;
+use App\Controllers\CommandeController;
 
 /**
  * Main Routes
@@ -75,11 +76,7 @@ $router->get('/message', function () {
 /**
  * Product Routes
  */
-$router->get('/buy', function () {
-    (new OrdersController())->buy_view(
-        'E-Artisanat - Commande'
-    );
-});
+
 
 $router->get('/products', function () {
     (new ProductsController())->products_view(
@@ -92,6 +89,13 @@ $router->get('/product', function () {
         'E-Artisanat - commande & négociation'
     );
 });
+
+$router->post('/product', function () {
+    (new ProductsController())->product_view(
+        'E-Artisanat - commande & négociation'
+    );
+});
+
 
 $router->get('/cart', function () {
     (new PanierController())->panier(
@@ -262,3 +266,20 @@ $router->get('/cart/add', function () {
     );
 });
 
+$router->get('/buy', function () {
+    (new OrdersController())->order_confirmed_view(
+        'E-Artisanat - Commande'
+    );
+});
+
+$router->get('/mes-commandes', function () {
+    (new OrdersController())->orders_view(
+        'E-Artisanat - Mes Commandes'
+    );
+});
+
+$router->get('/detail-commande', function () {
+    (new OrdersController())->orders_detail_view(
+        'E-Artisanat - Détails Commandes'
+    );
+});

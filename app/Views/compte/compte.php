@@ -54,45 +54,34 @@
       
             <hr class="my-6">
             <div class="flex items-center justify-between mb-4">
-                <h4 class="text-lg font-semibold">Mes commandes</h4>
-                <a href="/mescommandes.html" class="text-green-600 text-sm hover:underline flex items-center gap-1">
-                    Voir plus
-                    <i class="fas fa-arrow-right text-xs"></i>
-                </a>
-            </div>
-            <ul class="space-y-2">
-                <a href="/detailcommande.html">
-                    <li class="flex justify-between items-center bg-gray-100 rounded px-4 py-2 hover:bg-green-50 transition">
-                        <span>Commande #1234</span>
-                        <span class="text-green-600 font-medium">Livrée</span>
-                    </li>
-                </a>
-                <a href="/detailcommande.html">
-                    <li class="flex justify-between items-center bg-gray-100 rounded px-4 py-2 hover:bg-green-50 transition">
-                        <span>Commande #1235</span>
-                        <span class="text-yellow-600 font-medium">En cours</span>
-                    </li>
-                </a>
-                <a href="/detailcommande.html">
-                    <li class="flex justify-between items-center bg-gray-100 rounded px-4 py-2 hover:bg-green-50 transition">
-                        <span>Commande #1235</span>
-                        <span class="text-yellow-600 font-medium">En cours</span>
-                    </li>
-                </a>
-                <a href="/detailcommande.html">
-                    <li class="flex justify-between items-center bg-gray-100 rounded px-4 py-2 hover:bg-green-50 transition">
-                        <span>Commande #1235</span>
-                        <span class="text-yellow-600 font-medium">En cours</span>
-                    </li>
-                </a>
-                <a href="/detailcommande.html">
-                    <li class="flex justify-between items-center bg-gray-100 rounded px-4 py-2 hover:bg-green-50 transition">
-                        <span>Commande #1235</span>
-                        <span class="text-yellow-600 font-medium">En cours</span>
-                    </li>
-                </a>
-               
-            </ul>
+    <h4 class="text-lg font-semibold">Mes commandes</h4>
+    <a href="/mes-commandes" class="text-green-600 text-sm hover:underline flex items-center gap-1">
+        Voir plus
+        <i class="fas fa-arrow-right text-xs"></i>
+    </a>
+</div>
+
+<ul class="space-y-2">
+    <?php foreach ($orders as $order): ?>
+        <a href="/detail-commande?id=<?= $order['id'] ?>">
+            <li class="flex justify-between items-center bg-gray-100 rounded px-4 py-2 hover:bg-green-50 transition">
+                <span>Commande #<?= $order['id'] ?></span>
+                <?php
+                    $statusClass = match ($order['statut']) {
+                        'Livrée'     => 'text-green-600',
+                        'En cours'   => 'text-yellow-600',
+                        'Payée'      => 'text-blue-600',
+                        'Annulée'    => 'text-red-600',
+                        'Expédiée'   => 'text-purple-600',
+                        default      => 'text-gray-600'
+                    };
+                ?>
+                <span class="<?= $statusClass ?> font-medium"><?= $order['statut'] ?></span>
+            </li>
+        </a>
+    <?php endforeach; ?>
+</ul>
+
         </div>
     </section>
 </main>

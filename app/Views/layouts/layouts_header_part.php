@@ -21,10 +21,10 @@
             <a href="#" id="notification-btn" class="text-gray-700 hover:text-green-600 transition flex items-center" aria-label="Notifications">
                 <i class="fa-regular fa-bell text-xl"></i>
             </a>
-            <a href="/conversations" class="text-gray-700 hover:text-green-600 transition flex items-center" aria-label="messages">
+            <a href="/messages" class="text-gray-700 hover:text-green-600 transition flex items-center" aria-label="messages">
                 <i class="fa-regular fa-message text-xl"></i>
             </a>
-            <a href="/panier" class="text-gray-700 hover:text-green-600 transition flex items-center mr-3" aria-label="Panier">
+            <a href="/cart" class="text-gray-700 hover:text-green-600 transition flex items-center mr-3" aria-label="Panier">
                 <i class="fa-solid fa-cart-shopping text-xl"></i>
             </a>
 
@@ -32,7 +32,7 @@
             <div id="notification-popup" class="hidden absolute right-7 top-20 bg-white shadow-lg rounded-xl p-4 w-80 z-50">
                 <div class="flex items-center justify-between mb-4">
                     <h4 class="text-lg font-semibold">Notifications</h4>
-                    <a href="/notifications.html" class="text-green-600 text-sm hover:underline flex items-center gap-1">
+                    <a href="/notifications" class="text-green-600 text-sm hover:underline flex items-center gap-1">
                         Voir plus
                         <i class="fas fa-arrow-right text-xs"></i>
                     </a>

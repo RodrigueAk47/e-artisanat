@@ -16,14 +16,14 @@ class AuthorController
             $autorId = $_GET['id'];
             $authorModel = new AuthorModel();
             $user = $authorModel->get_user_by_id($autorId);
-            
+
             $author = $authorModel->get_author_by_id($autorId);
 
             $keywords = $author['key_words'] ?? '';
             // Convert string(17) "{Bijoux,Qualité}" to array ['Bijoux', 'Qualité']
             $keywords = trim($keywords, '{}');
             $keywordsArray = array_map('trim', explode(',', $keywords));
-            
+
 
             $productsModel = new ProductsModel();
             $products = $productsModel->get($_GET['id']);
@@ -35,14 +35,31 @@ class AuthorController
 
     public function author_dashboard_view(string $title)
     {
+
         session_start();
+        if (!isset($_SESSION['user']['id'])) {
+            header('Location: /connexion');
+            exit;
+        }
+
+        $authorId = $_SESSION['user']['id'];
+
+        $dashboardModel = new \App\Models\AuthorModel();
+
+        // Récupération des données
+        $productCount  = $dashboardModel->countProducts($authorId);
+        $recentProducts = $dashboardModel->getRecentProducts($authorId, 5);
+        $orderCount    = $dashboardModel->countOrders($authorId);
+        $recentOrders  = $dashboardModel->getRecentOrders($authorId, 5);
+        $messageCount  = 3;
+
         require_once __DIR__ . '/../Views/layouts/layouts_header_part.php';
         require_once __DIR__ . '/../Views/authors/author_layouts/author_sidebar_part.php';
         require_once __DIR__ . '/../Views/authors/author_dashboard_view.php';
         require_once __DIR__ . '/../Views/layouts/layouts_footer_part.php';
     }
 
-// products
+    // products
     public function author_products_view(string $title)
     {
         session_start();
@@ -50,12 +67,12 @@ class AuthorController
         $products = $productsModel->getAllProductsAndCategoriesByAuthorId($_SESSION['user']['id']);
 
         if (isset($_GET['delete'])) {
-            
+
             $productsModel->deleteProductById($_GET['delete']);
             header('Location: /author/products');
             exit;
         }
-        
+
         require_once __DIR__ . '/../Views/layouts/layouts_header_part.php';
         require_once __DIR__ . '/../Views/authors/author_layouts/author_sidebar_part.php';
         require_once __DIR__ . '/../Views/authors/products/author_products_view.php';
@@ -79,13 +96,13 @@ class AuthorController
                 'stock' => $_POST['stock'],
                 'category_id' => $_POST['category_id'],
             ];
-           
+
             $productsModel->editProductById($_GET['id'], $data);
             header('Location: /author/products');
             exit;
         }
 
-        
+
         $product = $productsModel->getProductById($_GET['id']);
         require_once __DIR__ . '/../Views/layouts/layouts_header_part.php';
         require_once __DIR__ . '/../Views/authors/author_layouts/author_sidebar_part.php';
@@ -121,7 +138,7 @@ class AuthorController
             ];
 
             $productsModel->addProduct($data);
-           
+
             header('Location: /author/products');
             exit;
         }
@@ -133,7 +150,7 @@ class AuthorController
     }
 
 
-    
+
 
 
 
@@ -142,11 +159,23 @@ class AuthorController
     public function author_orders_view(string $title)
     {
         session_start();
+        if (!isset($_SESSION['user']['id'])) {
+            header('Location: /connexion');
+            exit;
+        }
+
+        $authorId = $_SESSION['user']['id'];
+
+        // Charger le modèle et récupérer les commandes de l'auteur
+        require_once __DIR__ . '/../Models/CommandeModel.php';
+        $commandeModel = new \App\Models\CommandeModel();
+        $orders = $commandeModel->getOrdersByAuthorId($authorId);
         require_once __DIR__ . '/../Views/layouts/layouts_header_part.php';
         require_once __DIR__ . '/../Views/authors/author_layouts/author_sidebar_part.php';
         require_once __DIR__ . '/../Views/authors/orders/author_orders_view.php';
         require_once __DIR__ . '/../Views/layouts/layouts_footer_part.php';
     }
+
     public function author_settings_view(string $title)
     {
         session_start();
@@ -157,56 +186,56 @@ class AuthorController
     }
 
     public function author_uploads_view(string $title)
-{
-    session_start();
+    {
+        session_start();
 
 
-    $uploadModel = new UploadModel();
+        $uploadModel = new UploadModel();
 
-    $uploadedFileUrls = [];
+        $uploadedFileUrls = [];
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['photos'])) {
-        $uploadDir = 'uploads/';
-        if (!is_dir($uploadDir)) {
-            mkdir($uploadDir, 0777, true);
-        }
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['photos'])) {
+            $uploadDir = 'uploads/';
+            if (!is_dir($uploadDir)) {
+                mkdir($uploadDir, 0777, true);
+            }
 
-        $files = $_FILES['photos'];
-        $authorId = $_SESSION['user']['id'];
+            $files = $_FILES['photos'];
+            $authorId = $_SESSION['user']['id'];
 
-        for ($i = 0; $i < count($files['name']); $i++) {
-            if ($files['error'][$i] === UPLOAD_ERR_OK) {
-                $tmpName  = $files['tmp_name'][$i];
-                $originalName = basename($files['name'][$i]);
-                $uniqueName = uniqid() . '_' . $originalName;
-                $targetPath = $uploadDir . $uniqueName;
+            for ($i = 0; $i < count($files['name']); $i++) {
+                if ($files['error'][$i] === UPLOAD_ERR_OK) {
+                    $tmpName  = $files['tmp_name'][$i];
+                    $originalName = basename($files['name'][$i]);
+                    $uniqueName = uniqid() . '_' . $originalName;
+                    $targetPath = $uploadDir . $uniqueName;
 
-                if (move_uploaded_file($tmpName, $targetPath)) {
-                    $publicPath = '/uploads/' . $uniqueName;
+                    if (move_uploaded_file($tmpName, $targetPath)) {
+                        $publicPath = '/uploads/' . $uniqueName;
 
-                    // Enregistrement en base
-                    $uploadModel->uploadFile($publicPath, $originalName, $authorId);
+                        // Enregistrement en base
+                        $uploadModel->uploadFile($publicPath, $originalName, $authorId);
 
-                    $uploadedFileUrls[] = $publicPath;
+                        $uploadedFileUrls[] = $publicPath;
+                    }
                 }
             }
+
+            // Facultatif : redirection ou affichage des liens
+            $_SESSION['uploaded_files'] = $uploadedFileUrls;
+            header('Location: /author/galerie?success=1');
+            exit;
         }
+        // Récupération des fichiers déjà téléversés
+        $uploadedFiles = $uploadModel->getUploadsByAuthorId($_SESSION['user']['id']);
 
-        // Facultatif : redirection ou affichage des liens
-        $_SESSION['uploaded_files'] = $uploadedFileUrls;
-        header('Location: /author/galerie?success=1');
-        exit;
+        require_once __DIR__ . '/../Views/layouts/layouts_header_part.php';
+        require_once __DIR__ . '/../Views/authors/author_layouts/author_sidebar_part.php';
+        require_once __DIR__ . '/../Views/authors/products/author_uploads_view.php';
+        require_once __DIR__ . '/../Views/layouts/layouts_footer_part.php';
     }
-    // Récupération des fichiers déjà téléversés
-    $uploadedFiles = $uploadModel->getUploadsByAuthorId($_SESSION['user']['id']);
-    
-    require_once __DIR__ . '/../Views/layouts/layouts_header_part.php';
-    require_once __DIR__ . '/../Views/authors/author_layouts/author_sidebar_part.php';
-    require_once __DIR__ . '/../Views/authors/products/author_uploads_view.php';
-    require_once __DIR__ . '/../Views/layouts/layouts_footer_part.php';
-}
 
- 
+
     public function author_apply_view(string $title)
     {
         session_start();

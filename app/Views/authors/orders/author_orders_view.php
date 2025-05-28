@@ -20,33 +20,38 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="border-t">
-                                <td class="py-2 px-4">#1001</td>
-                                <td class="py-2 px-4">2024-06-01</td>
-                                <td class="py-2 px-4">Pagne tissé</td>
-                                <td class="py-2 px-4">2</td>
-                                <td class="py-2 px-4">30 000 FCFA</td>
-                                <td class="py-2 px-4"><span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded">En attente</span></td>
-                                <td class="py-2 px-4">
-                                    <button class="text-blue-600 hover:underline mr-2">Voir</button>
-                                    <button class="text-green-600 hover:underline">Valider</button>
-                                </td>
-                            </tr>
-                            <tr class="border-t">
-                                <td class="py-2 px-4">#1000</td>
-                                <td class="py-2 px-4">2024-05-28</td>
-                                <td class="py-2 px-4">Collier perlé</td>
-                                <td class="py-2 px-4">1</td>
-                                <td class="py-2 px-4">7 500 FCFA</td>
-                                <td class="py-2 px-4"><span class="bg-green-100 text-green-800 px-2 py-1 rounded">Livrée</span></td>
-                                <td class="py-2 px-4">
-                                    <button class="text-blue-600 hover:underline">Voir</button>
-                                </td>
-                            </tr>
-                            <!-- Plus de lignes si besoin -->
+                            <?php foreach ($orders as $o): ?>
+                                <tr class="border-t">
+                                    <td class="py-2 px-4">#<?= htmlspecialchars($o['commande_id']) ?></td>
+                                    <td class="py-2 px-4"><?= (new DateTime($o['date_commande']))->format('Y-m-d') ?></td>
+                                    <td class="py-2 px-4"><?= htmlspecialchars($o['produit']) ?></td>
+                                    <td class="py-2 px-4"><?= $o['quantite'] ?></td>
+                                    <td class="py-2 px-4"><?= number_format($o['total_ligne'], 0, ',', ' ') ?> FCFA</td>
+                                    <?php
+                                    // choix de la couleur selon le statut
+                                    $cls = match ($o['statut']) {
+                                        'Livrée'     => 'bg-green-100 text-green-800',
+                                        'En attente' => 'bg-yellow-100 text-yellow-800',
+                                        'Payée'      => 'bg-blue-100 text-blue-800',
+                                        'Annulée'    => 'bg-red-100 text-red-800',
+                                        default      => 'bg-gray-100 text-gray-800',
+                                    };
+                                    ?>
+                                    <td class="py-2 px-4">
+                                        <span class="<?= $cls ?> px-2 py-1 rounded text-xs"><?= htmlspecialchars($o['statut']) ?></span>
+                                    </td>
+                                    <td class="py-2 px-4">
+                                        <a href="/detailcommande?id=<?= $o['commande_id'] ?>" class="text-blue-600 hover:underline mr-2">Voir</a>
+                                        <?php if ($o['statut'] === 'En attente'): ?>
+                                            <a href="/commande/valider?id=<?= $o['commande_id'] ?>" class="text-green-600 hover:underline">Valider</a>
+                                        <?php endif; ?>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
                         </tbody>
+
                     </table>
                 </div>
             </div>
         </main>
-    </div>
+        </div>

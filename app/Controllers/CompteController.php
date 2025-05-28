@@ -3,6 +3,7 @@
 namespace App\Controllers;
 use App\Models\UserModel;
 use App\Models\AuthorModel;
+use App\Models\CommandeModel;
 
 class CompteController
 {
@@ -12,6 +13,10 @@ class CompteController
 
         $authorModel = new AuthorModel();
         $isAuthor = $authorModel->isAuthor($_SESSION['user']['id']);
+        $userId = $_SESSION['user']['id'];
+
+    $ordersModel = new CommandeModel();
+    $orders = $ordersModel->getOrdersByUserId($userId);
         require_once __DIR__ . '/../Views/layouts/layouts_header_part.php';
         require_once __DIR__ .'/../Views/compte/compte.php';
         require_once __DIR__ . '/../Views/layouts/layouts_footer_part.php';

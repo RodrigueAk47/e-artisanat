@@ -7,10 +7,12 @@
             <div class="grid grid-cols-1 gap-8">
                 <div class="flex items-center gap-4 bg-gray-50 rounded-xl p-4 shadow">
                     <img src="../assets/img/produits/wave.png" alt="Paiement via Wave" class="h-14 w-auto">
+                    <a href="/buy">
                     <div class="text-left">
                         <h2 class="font-semibold text-lg">Wave</h2>
                         <p class="text-gray-600 text-sm">Payez facilement via l'application Wave.</p>
                     </div>
+                    </a>
                 </div>
                 <div class="flex items-center gap-4 bg-gray-50 rounded-xl p-4 shadow">
                     <img src="../assets/img/produits/orange.png" alt="Paiement via Orange" class="h-14 w-auto">

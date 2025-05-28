@@ -24,7 +24,7 @@
                 </div>
                 <h3 class="font-semibold text-lg mb-2"><?= $product['name'] ?></h3>
                 
-                <p class="text-gray-600 mb-4 text-sm"><?= $product['description'] ?></p>
+               
                 <a class="mt-auto bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition font-semibold" href="/product?id=<?= $product['id'] ?>">voir</a>
             </article>
         
