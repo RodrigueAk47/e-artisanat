@@ -1,7 +1,7 @@
 <main class="flex-grow">
     <section class="relative overflow-hidden rounded-3xl lg:w-[78%] w-[90%] mx-auto mt-6">
         <img src="assets/img/happy.png" alt="Confetti" class="absolute top-2 right-2 w-11  z-10">
-        <img src="assets/img/hero.png" alt="Marché artisanal ivoirien"
+        <img src="assets/wall.png" alt="Marché artisanal ivoirien"
              loading="lazy" class="w-full h-64 md:h-96 object-cover">
         <a href="#"
            class="absolute top-4 left-4 bg-green-600 text-white font-semibold px-4 py-2 rounded hover:bg-green-700 shadow-md flex items-center gap-2 transition">

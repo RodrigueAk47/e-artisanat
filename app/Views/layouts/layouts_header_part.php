@@ -16,7 +16,14 @@
 <!-- Navigation -->
 <header class="bg-white shadow sticky top-0 z-50">
     <div class="max-w-screen-xl mx-auto px-8 py-5 flex justify-between items-center">
-        <div class="text-2xl font-extrabold text-green-600 tracking-wide"><a href="/">E-Artisanat</a></div>
+        <div class="flex items-center gap-3">
+            <a href="/">
+            <img src="/assets/logo.png"  alt="Logo E-Artisanat" class="w-10 h-10  object-contain">
+            </a>
+            <div class="text-2xl font-extrabold text-green-600 tracking-wide">
+            <a href="/">E-Artisanat</a>
+            </div>
+        </div>
         <nav class="flex items-center gap-5 text-lg font-medium">
             <a href="#" id="notification-btn" class="text-gray-700 hover:text-green-600 transition flex items-center" aria-label="Notifications">
                 <i class="fa-regular fa-bell text-xl"></i>
