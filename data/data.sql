@@ -106,3 +106,13 @@ CREATE TABLE IF NOT EXISTS comments (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+CREATE TABLE IF NOT EXISTS messages (
+  id SERIAL PRIMARY KEY,
+  product_id   INTEGER NOT NULL REFERENCES products(id)       ON DELETE CASCADE,
+  sender_id    INTEGER NOT NULL REFERENCES users(id)          ON DELETE CASCADE,
+  receiver_id  INTEGER NOT NULL REFERENCES users(id)          ON DELETE CASCADE,
+  content      TEXT    NOT NULL,
+  offer        NUMERIC(12,2)        CHECK (offer >= 0),      -- proposition facultative
+  created_at   TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+

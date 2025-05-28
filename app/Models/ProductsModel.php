@@ -25,13 +25,19 @@ class ProductsModel
 
     // get product by id
     public function getProductById(int $id): array
-    {
-        $sql = "SELECT p.*, u.file_url as img_url FROM products p INNER JOIN uploads u ON p.img_id = u.id WHERE p.id = :id";
-        $stmt = $this->db->prepare($sql);
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-        $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC);
-    }
+{
+    $sql = "SELECT p.*, u.file_url as img_url
+            FROM products p
+            INNER JOIN uploads u ON p.img_id = u.id
+            WHERE p.id = :id";
+    $stmt = $this->db->prepare($sql);
+    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+    $stmt->execute();
+
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $result !== false ? $result : []; 
+}
+
 
     // get authorNameAndIdByProductId
     public function getAuthorNameAndIdByProductId(int $productId): array

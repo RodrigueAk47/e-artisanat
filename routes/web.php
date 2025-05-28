@@ -19,6 +19,7 @@ use App\Controllers\OrdersController;
 use App\Controllers\WelcomeController;
 use App\Controllers\CartController;
 use App\Controllers\CommandeController;
+use App\Controllers\MessageController;
 
 /**
  * Main Routes
@@ -281,5 +282,28 @@ $router->get('/mes-commandes', function () {
 $router->get('/detail-commande', function () {
     (new OrdersController())->orders_detail_view(
         'E-Artisanat - Détails Commandes'
+    );
+});
+
+/**
+ * Message Routes
+ */
+
+
+$router->get('/author/negocier', function () {
+    (new MessageController())->negotiate_view(
+        'E-Artisanat - Négociation'
+    );
+});
+
+$router->post('/author/negocier', function () {
+    (new MessageController())->negotiate_view(
+        'E-Artisanat - Négociation'
+    );
+});
+
+$router->get('/author/inbox', function () {
+    (new MessageController())->inbox_view(
+        'E-Artisanat - Boîte de Réception'
     );
 });

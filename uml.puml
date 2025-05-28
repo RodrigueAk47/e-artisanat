@@ -1,0 +1,127 @@
+@startuml
+title Schéma E-Artisanat – Tables principales
+
+'--------------------------------------------------
+' Styles
+hide circle
+skinparam classFontColor           #2d3748
+skinparam classAttributeIconSize   0
+skinparam classBackgroundColor     #ffffff
+skinparam classBorderColor         #94a3b8
+skinparam classBorderThickness     0.5
+skinparam classAttributeFontSize   11
+
+'--------------------------------------------------
+' Tables (classes)
+
+class users {
+  + id : SERIAL PK
+  last_name : varchar(100)
+  first_name : varchar(100)
+  age : smallint
+  phone_number : varchar(20) «unique»
+  email : varchar(255)
+  address : varchar(255)
+  password_hash : varchar(255)
+  created_at : timestamp
+  role : varchar(20)
+}
+
+class authors {
+  + id : SERIAL PK
+  user_id : int «unique, FK users.id»
+  bio : text
+  website : varchar(255)
+  social_media_links : jsonb
+  key_words : text[]
+  is_verified : boolean
+  photo_url : varchar(255)
+  created_at : timestamp
+}
+
+class products_categories {
+  + id : SERIAL PK
+  name : varchar(100)
+  description : text
+  img_url : varchar(255)
+  created_at : timestamp
+}
+
+class products {
+  + id : SERIAL PK
+  name : varchar(100)
+  description : text
+  price : numeric(10,2)
+  stock : int
+  category_id : int «FK products_categories.id»
+  img_id : int «FK uploads.id»
+  dimensions : varchar(50)
+  origin : varchar(100)
+  author_id : int «FK users.id»
+  material : varchar(100)
+  created_at : timestamp
+}
+
+class uploads {
+  + id : SERIAL PK
+  title : varchar(255)
+  author_id : int
+  file_url : text
+  created_at : timestamp
+}
+
+class commandes {
+  + id : SERIAL PK
+  user_id : int «FK users.id»
+  date_commande : date
+  statut : varchar(30)
+  total : numeric(12,2)
+  adresse_livraison : text
+}
+
+class ligne_commandes {
+  + id : SERIAL PK
+  commande_id : int «FK commandes.id»
+  product_id  : int «FK products.id»
+  quantite : int
+  prix_unitaire : numeric(10,2)
+  montant : numeric(14,2) «generated»
+}
+
+class comments {
+  + id : SERIAL PK
+  user_id : int «FK users.id»
+  product_id : int «FK products.id»
+  content : text
+  created_at : timestamp
+}
+
+class messages {
+  + id : SERIAL PK
+  product_id  : int «FK products.id»
+  sender_id   : int «FK users.id»
+  receiver_id : int «FK users.id»
+  content : text
+  offer : numeric(12,2)
+  created_at : timestamp
+}
+
+'--------------------------------------------------
+' Relations
+
+users ||--o{ commandes : "passe"
+users ||--o{ comments  : "écrit"
+users ||--o{ messages  : "envoie/reçoit"
+users ||--|| authors   : "profil 1-1"
+users ||--o{ products  : "crée"
+
+products_categories ||--o{ products : "contient"
+
+products ||--o{ ligne_commandes : "vendu dans"
+products ||--o{ comments        : "commenté"
+products ||--o{ messages        : "négocié"
+products ||--o{ uploads         : "illustre"
+
+commandes ||--o{ ligne_commandes : "détaille"
+
+@enduml

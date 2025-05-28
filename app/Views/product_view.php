@@ -33,7 +33,7 @@
             </div>
 
             <div class="flex gap-4 mb-6 mt-6">
-                <a href="/cart" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 font-semibold transition flex-1">
+                <a href="/cart/add?id=<?= $product['id'] ?>" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 font-semibold transition flex-1">
                     Commander
                 </a>
                 <a href="/messages" class="bg-yellow-500 text-white px-6 py-2 rounded hover:bg-yellow-600 font-semibold transition flex-1">
